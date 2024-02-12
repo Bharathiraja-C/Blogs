@@ -9,6 +9,7 @@ const UserProfile = () => {
         name: "John Doe",
         email: "john@gmail.com",
         bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vero voluptatum incidunt, deserunt architecto nam odio labore dignissimos rem nemo voluptates est aliquam autem expedita quidem fugit recusandae, veritatis dolore."
+
     })
 
     const { userId } = useParams();
@@ -45,7 +46,7 @@ const UserProfile = () => {
                             <h5>Email: </h5>
                             <input type="email" name="email" placeholder='Enter your Email' onChange={(e) => handleChange(e, 'email')} value={userData.email} required />
                             <h5>Bio: </h5>
-                            <textarea name="bio" rows="10" placeholder='Enter Bio ...' onChange={(e) => handleChange(e, 'bio')} defaultValue={userData.bio} ></textarea>
+                            <textarea name="bio" rows="8" placeholder='Enter Bio ...' onChange={(e) => handleChange(e, 'bio')} defaultValue={userData.bio} ></textarea>
                             <div></div> {/* empty div dont remove */}
                             <button>Save</button>
                         </div>
@@ -61,6 +62,57 @@ const UserProfile = () => {
                     </div>
                 )
             }
+            <div className="blog-list">
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+                <div className='one-blog-item'>
+                    <h6><h5>Title</h5>by {userData.name}</h6>
+                    <p>DD/MM/YYYY HH:MM:SS
+                        <br />
+                        <button className='edit-button'>Edit</button>
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }
