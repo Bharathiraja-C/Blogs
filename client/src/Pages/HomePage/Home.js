@@ -1,11 +1,13 @@
 import React from "react";
 import Navbar from "../../Components/UserProfile/Navbar";
 import "./Home.css";
+import HeroDiv from '../../Components/UserProfile/HeroDiv';
 
 function Home() {
   return (
     <div>
       <Navbar />
+      {/* <HeroDiv /> */}
       <div className="container mt-4 mr-0">
         <div className="row">
           {/* Title */}
