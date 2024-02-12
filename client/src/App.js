@@ -1,12 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import UserProfile from './Pages/UserProfile/UserProfile';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/User/:id' element={<UserProfile />} />
+        <Route path='/User/:userId' element={
+          <>
+            <Navbar />
+            <UserProfile />
+          </>
+        } />
       </Routes>
     </BrowserRouter>
   );
