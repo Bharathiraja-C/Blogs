@@ -1,32 +1,28 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
-const newBlog = () => {
+import './NewBlog.css'
+const NewBlog = () => {
   return (
-    <div>
-        <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
+    <div className='form-head1'>
+    <center className='login-head1'>Add Blogs</center><br/>
+    <Form>
+    <Form.Group controlId="formBasicEmail">
+      <Form.Label>Title</Form.Label>
+      <Form.Control type="email" placeholder="Enter Blog Title" />
+    </Form.Group><br/>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
+    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Blog content</Form.Label>
+        <Form.Control as="textarea" rows={6} />
+      </Form.Group>
+    <Button className='Button' type="submit">
+      Save
+    </Button><br/><br/>
+
+    </Form>
     </div>
   )
 }
 
-export default newBlog
+export default NewBlog

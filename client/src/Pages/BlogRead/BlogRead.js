@@ -18,7 +18,7 @@ function BlogPostPage() {
         <p><strong>Date Modified:</strong> {blogPost.dateModified}</p>
         <div className="blog-content">
           <p>{blogPost.content}</p>
-          <button onClick={() => window.history.back()}>Back</button>
+          <a href='/'><button>Back</button></a>
         </div>
       </div>
     </div>
