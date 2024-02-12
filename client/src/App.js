@@ -9,7 +9,8 @@ function App() {
       <Routes>
         <Route path='/User/:id' element={<UserProfile />} />
         <Route path='/Auth' element={<UserAuth/>}/>
-      </Routes>
+        <Route path='/NewBlog' element={<NewBlog/>}/>
+      </Routes> 
     </BrowserRouter>
   );
 }
