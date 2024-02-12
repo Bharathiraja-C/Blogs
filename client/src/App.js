@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/User/:id' element={<UserProfile />} />
-        <Route path='/Auth' element={<UserAuth/>}/>
-        <Route path='/Blog' element={<BlogPostPage/>}/>
+        <Route path='/Auth' element={<UserAuth />} />
+        <Route path='/NewBlog' element={<NewBlog />} />
       </Routes>
     </BrowserRouter>
   );
