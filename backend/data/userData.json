@@ -1,0 +1,39 @@
+{
+    "Name": {
+      "type": "String",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 100
+    },
+
+    
+    "userID": {
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 50
+    },
+
+    "email": {
+      "type": "String",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 254
+    },
+
+    "bio":{
+        "type": "String",
+        "minLength": 1,
+        "maxLength": 255
+    },
+
+    "blogID": {
+      "type": ["String"],
+      "items": {
+        "type": "String",
+        "minLength": 1,
+        "maxLength": 255
+      }
+
+    }
+  }
+  
