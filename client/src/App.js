@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import UserAuth from './Pages/UserAuth/UserAuth';
-import Home from './Components/UserProfile/Home';
 
 function App() {
   return (
@@ -11,6 +10,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/User/:id' element={<UserProfile />} />
         <Route path='/Auth' element={<UserAuth/>}/>
+        <Route path='/Blog' element={<BlogPostPage/>}/>
       </Routes>
     </BrowserRouter>
   );

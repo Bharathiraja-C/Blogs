@@ -1,0 +1,26 @@
+.blog-post-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .blog-post {
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgb(226,226,226);
+  }
+  
+  .blog-content {
+    margin-top: 20px;
+  }
+  
+  .blog-content button {
+    float: right;
+    background-image: linear-gradient(rgb(74, 74, 114),rgb(77, 121, 122));
+    color: white;
+    padding: 5px;
+  }
+  
