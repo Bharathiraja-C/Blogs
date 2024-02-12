@@ -1,0 +1,20 @@
+.welcome{
+    font-size: 150px;
+}
+
+.club{
+    font-size: 75px;
+}
+
+.hero{
+    background-color: rgb(96, 200, 231);
+    margin-top: 20px;
+    padding: 20px;
+
+}
+
+.butn{
+    background-image: linear-gradient(rgb(74, 74, 114),rgb(77, 121, 122));
+    color: white;
+    padding: 7px;
+}
