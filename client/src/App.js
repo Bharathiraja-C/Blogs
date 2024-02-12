@@ -9,7 +9,6 @@ function App() {
       <Routes>
         <Route path='/User/:userId' element={
           <>
-            <Navbar />
             <UserProfile />
           </>
         } />

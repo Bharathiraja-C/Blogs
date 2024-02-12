@@ -5,8 +5,26 @@ import './UserProfile.css'
 const UserProfile = () => {
 
     const [isEditing, setIsEditing] = useState(false)
+    const [userData, setUserData] = useState({
+        name: "John Doe",
+        email: "john@gmail.com",
+        bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vero voluptatum incidunt, deserunt architecto nam odio labore dignissimos rem nemo voluptates est aliquam autem expedita quidem fugit recusandae, veritatis dolore."
+    })
+
     const { userId } = useParams();
     console.log(userId)
+
+    const saveProfileData = (e) => {
+        e.preventDefault()
+        setIsEditing(false)
+    }
+
+    const handleChange = (e, colName) => {
+        setUserData(prevUserData => ({
+            ...prevUserData,
+            [colName]: e.target.value
+        }));
+    }
 
     return (
         <div className='profile-main'>
@@ -20,14 +38,14 @@ const UserProfile = () => {
             </div>
             {
                 isEditing ? (
-                    <form method='post' onSubmit={() => setIsEditing(false)}>
+                    <form method='post' onSubmit={(e) => saveProfileData(e)}>
                         <div className="show-profile">
                             <h5>Name: </h5>
-                            <input type="text" name="name" placeholder='Enter your Name' />
+                            <input type="text" name="name" placeholder='Enter your Name' onChange={(e) => handleChange(e, 'name')} value={userData.name} required />
                             <h5>Email: </h5>
-                            <input type="email" name="email" placeholder='Enter your Email' />
+                            <input type="email" name="email" placeholder='Enter your Email' onChange={(e) => handleChange(e, 'email')} value={userData.email} required />
                             <h5>Bio: </h5>
-                            <textarea name="bio" rows="10" placeholder='Enter Bio ...'></textarea>
+                            <textarea name="bio" rows="10" placeholder='Enter Bio ...' onChange={(e) => handleChange(e, 'bio')} >{userData.bio}</textarea>
                             <div></div> {/* empty div dont remove */}
                             <button>Save</button>
                         </div>
@@ -35,14 +53,11 @@ const UserProfile = () => {
                 ) : (
                     <div className="show-profile">
                         <h5>Name: </h5>
-                        <p>John Doe</p>
+                        <p>{userData.name}</p>
                         <h5>Email: </h5>
-                        <p>Hello@gmail.com</p>
+                        <p>{userData.email}</p>
                         <h5>Bio: </h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Quas vero voluptatum incidunt, deserunt architecto nam
-                            odio labore dignissimos rem nemo voluptates est aliquam autem
-                            expedita quidem fugit recusandae, veritatis dolore.</p>
+                        <p>{userData.bio}</p>
                     </div>
                 )
             }
