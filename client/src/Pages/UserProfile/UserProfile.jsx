@@ -45,7 +45,7 @@ const UserProfile = () => {
                             <h5>Email: </h5>
                             <input type="email" name="email" placeholder='Enter your Email' onChange={(e) => handleChange(e, 'email')} value={userData.email} required />
                             <h5>Bio: </h5>
-                            <textarea name="bio" rows="10" placeholder='Enter Bio ...' onChange={(e) => handleChange(e, 'bio')} >{userData.bio}</textarea>
+                            <textarea name="bio" rows="10" placeholder='Enter Bio ...' onChange={(e) => handleChange(e, 'bio')} defaultValue={userData.bio} ></textarea>
                             <div></div> {/* empty div dont remove */}
                             <button>Save</button>
                         </div>
