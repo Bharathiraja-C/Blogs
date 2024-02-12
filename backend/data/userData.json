@@ -6,9 +6,10 @@
       "maxLength": 100
     },
 
-    
+
     "userID": {
       "type": "String",
+      "required":true,
       "minLength": 1,
       "maxLength": 50
     },
@@ -22,8 +23,8 @@
 
     "bio":{
         "type": "String",
-        "minLength": 1,
-        "maxLength": 255
+        "minLength": 1
+        
     },
 
     "blogID": {

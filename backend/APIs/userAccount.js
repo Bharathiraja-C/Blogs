@@ -1,41 +1,50 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
+const mongoose = require("mongoose");
+const express = require("express");
+const server = express();
+//const path = require("path");
+const collection = require("./userAcc1");
+const { getMaxListeners } = require("events");
 
-// Read the schema from userData.json
-const userDataSchema = JSON.parse(fs.readFileSync('C:\Users\AvikPathak\ProjectMini\miniproject_blogs\backend\data\blogdata.json', 'utf-8'));
 
-// Create a Mongoose schema based on the read data
-const userSchema = new mongoose.Schema(userDataSchema);
+// Example: Create a new user
+// const newUser = new User({
+//   Name: "Doe",
+//   userID: "john_doe123",
+//   email: "john.doe@example.com",
+//   blogID: ["blog1", "blog2"],
+// });
+const app = express();
 
-// Create a Mongoose model
-const User = mongoose.model('User', userSchema);
+app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/your_database', { useNewUrlParser: true, useUnifiedTopology: true });
+app.post("/", async (req, res) => {
+  const data = {
+    Name: "Doe",
+    userID: "john_doe123",
+    email: "avikpathak2000@gmail.com"
+  };
+  try {
+    const id = await collection.findOne(data);
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-
-  // Now you can perform operations with the User model (create, read, update, delete, etc.)
-
-  // Example: Create a new user
-  const newUser = new User({
-    firstName: 'John',
-    lastName: 'Doe',
-    userID: 'john_doe123',
-    email: 'john.doe@example.com',
-    blogID: ['blog1', 'blog2']
-  });
-
-  newUser.save((err, savedUser) => {
-    if (err) {
-      console.error('Error saving user:', err);
-    } else {
-      console.log('User saved to database:', savedUser);
+    if (!id) {
+        console.log("hello")
+      const userdata = await collection.insertMany(data);
+      res.status(200).JSON(userdata);
+      return;
+    } else {  
+      res.status(200);
+      return;
     }
+  } catch (err) {
+    res.status(500);
+  }
+});
 
-    // Disconnect from MongoDB after saving
-    
-  });
+app.get("/",async(req,res)=>{
+    console.log("Hello Get Me")
+}) ;
+
+const port = 3000; 
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
 });
