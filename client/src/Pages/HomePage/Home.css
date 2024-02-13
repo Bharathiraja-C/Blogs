@@ -5,10 +5,14 @@
     margin-right: 20px;
 
 }
-
+body {
+    overflow-x: hidden; /* Hide scrollbars */
+  }
 .Home {
     /* background-image: radial-gradient(circle 311px at 8.6% 27.9%, rgba(62, 147, 252, 0.57) 12.9%, rgba(239, 183, 192, 0.44) 91.2%); */
     background-color: rgb(226, 226, 226);
+    height: 100%;
+    width: 100%;
 }
 
 content {
@@ -60,6 +64,16 @@ div p {
     align-items: flex-start;
 }
 
+@media screen and (max-width: 600px) {
+    .left-content .list-item {
+      width: 100%;
+    }
+    .left-content h6,
+  .left-content content {
+    font-size: 0.9rem;
+  }
+  }
+  
 .user-info img {
     width: 30px;
     height: 30px;

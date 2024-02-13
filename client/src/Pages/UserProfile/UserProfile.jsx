@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import './UserProfile.css'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../Components/Navbar/Navbar';
 
 const UserProfile = () => {
 
@@ -11,7 +10,7 @@ const UserProfile = () => {
     const { id } = useParams();
 
     const [userData, setUserData] = useState({})
-    const [blogData, setBlogData] = useState({})
+    const [blogData, setBlogData] = useState([{}])
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,8 +18,8 @@ const UserProfile = () => {
             try {
                 const res = await axios.get(`http://localhost:5000/getUserData/${id}`)
                 if (res.status === 200) {
-                    setUserData(res.data)
-                    setBlogData(res.data.blogs)
+                    setUserData(res.data.userData)
+                    setBlogData(res.data.blogData)
                 }
             } catch (error) {
                 console.log(error)
@@ -51,13 +50,12 @@ const UserProfile = () => {
         }));
     }
 
-    const gotoBlog = () => {
-        navigate('/blog/123')
+    const gotoBlog = (id) => {
+        navigate(`/blog/${id}`)
     }
 
     return (
         <>
-            <Navbar />
             <div className='profile-main'>
                 <div className="profile-head">
                     <h3>Profile</h3>
@@ -89,15 +87,25 @@ const UserProfile = () => {
                             <h5>Email: </h5>
                             <p>{userData.email}</p>
                             <h5>Bio: </h5>
-                            <p style={{whiteSpace: "pre-wrap"}}>{userData.bio}</p>
+                            <p style={{ whiteSpace: "pre-wrap" }}>{userData.bio}</p>
                         </div>
                     )
                 }
+                <button className='button-style' onClick={() => navigate("/newBlog")}>Add a Blog</button>
                 <div className="blog-list">
-                    <div className='one-blog-item' onClick={gotoBlog}>
-                        <h6><h5>Title</h5>by {userData.name}</h6>
-                        <p>DD/MM/YYYY HH:MM:SS</p>
-                    </div>
+                    {
+                        blogData.map((row, index) => {
+                            return (
+                                row.title ? (
+                                    <div key={index} className='one-blog-item' onClick={() => navigate(`/blog/${row._id}`)}>
+                                        <h5>{row.title}<br/><h6>by {row.author}</h6></h5>
+                                        
+                                        <p>{row.createdAt}</p>
+                                    </div>
+                                ) : null
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>

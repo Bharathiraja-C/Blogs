@@ -1,27 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './BlogRead.css';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function BlogPostPage() {
   // Example blog post data
-  const blogPost = {
-    title: "Sample Blog Post",
-    author: "John Doe",
-    dateModified: "February 12, 2024",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus nec nunc suscipit ultricies. Nam sed justo ut odio suscipit fringilla. Integer vitae nisl non felis consequat auctor. Mauris non elit metus. Cras eu tellus vitae velit aliquet tempor. Morbi non fermentum quam. Sed tincidunt dui nec est rutrum suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at ligula eu mauris feugiat pretium. Donec id orci vitae lacus volutpat dictum sed in elit. Nulla facilisi. Nam vel justo nec nunc congue eleifend non nec odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus nec nunc suscipit ultricies. Nam sed justo ut odio suscipit fringilla. Integer vitae nisl non felis consequat auctor. Mauris non elit metus. Cras eu tellus vitae velit aliquet tempor. Morbi non fermentum quam. Sed tincidunt dui nec est rutrum suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at ligula eu mauris feugiat pretium. Donec id orci vitae lacus volutpat dictum sed in elit. Nulla facilisi. Nam vel justo nec nunc congue eleifend non nec odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus nec nunc suscipit ultricies. Nam sed justo ut odio suscipit fringilla. Integer vitae nisl non felis consequat auctor. Mauris non elit metus. Cras eu tellus vitae velit aliquet tempor. Morbi non fermentum quam. Sed tincidunt dui nec est rutrum suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at ligula eu mauris feugiat pretium. Donec id orci vitae lacus volutpat dictum sed in elit. Nulla facilisi. Nam vel justo nec nunc congue eleifend non nec odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-  };
+  let { id } = useParams();
+  const navigate = useNavigate()
+
+  const [blogPost, setBlogPost] = useState({})
+
+  useEffect(() => {
+    const getBlogData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/getBlogById/${id}`)
+        if(res.status === 200){
+          setBlogPost(res.data)
+        }
+      } catch (error) {
+        navigate('/')
+      }
+    }
+
+    getBlogData()
+  },[])
+
+  const editBlog = async () => {
+    sessionStorage.setItem('editId', id)
+    navigate('/newBlog')
+  }
+
+  const deleteBlog = async () => {
+    try {
+      const res = await axios.delete(`http://localhost:5000/deleteBlogById/${id}`)
+      if(res.status === 200){
+        navigate(`/User/${localStorage.getItem('id')}`)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="blog-post-container">
       <div className="blog-post">
         <h1>{blogPost.title}</h1>
         <p><strong>Author:</strong> {blogPost.author}</p>
-        <p><strong>Date Modified:</strong> {blogPost.dateModified}</p>
+        <p><strong>Date Modified:</strong> {blogPost.createdAt}</p>
         <div className="blog-content">
-          <p>{blogPost.content}</p>
+          <p style={{whiteSpace: "pre-wrap"}}>{blogPost.content}</p>
           <div className="blog-buttons">
-            <button>Edit</button>
-            <button>Delete</button>
-            <a href='/'><button style={{marginLeft:'575px'}}>Back</button></a>
+            <button onClick={editBlog}>Edit</button>
+            <button onClick={deleteBlog}>Delete</button>
+            <button style={{marginLeft:'575px'}}>Back</button>
           </div>
         </div>
       </div>
