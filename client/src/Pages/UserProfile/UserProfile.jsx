@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import './UserProfile.css'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import Navbar from "../../Components/UserProfile/Navbar";
 
 const UserProfile = () => {
 
@@ -57,7 +56,6 @@ const UserProfile = () => {
 
     return (
         <>
-            <Navbar />
             <div className='profile-main'>
                 <div className="profile-head">
                     <h3>Profile</h3>
@@ -89,21 +87,25 @@ const UserProfile = () => {
                             <h5>Email: </h5>
                             <p>{userData.email}</p>
                             <h5>Bio: </h5>
-                            <p style={{whiteSpace: "pre-wrap"}}>{userData.bio}</p>
+                            <p style={{ whiteSpace: "pre-wrap" }}>{userData.bio}</p>
                         </div>
                     )
                 }
+                <button className='button-style' onClick={() => navigate("/newBlog")}>Add a Blog</button>
                 <div className="blog-list">
-                {
-                    blogData.map((row, index) => {
-                        return (
-                            <div key={index} className='one-blog-item' onClick={() => navigate(`/blog/${row._id}`)}>
-                                <h6><h5>{row.title}</h5>by {row.author}</h6>
-                                <p>{row.createdAt}</p>
-                            </div>
-                        )
-                    })
-                }
+                    {
+                        blogData.map((row, index) => {
+                            return (
+                                row.title ? (
+                                    <div key={index} className='one-blog-item' onClick={() => navigate(`/blog/${row._id}`)}>
+                                        <h5>{row.title}<br/><h6>by {row.author}</h6></h5>
+                                        
+                                        <p>{row.createdAt}</p>
+                                    </div>
+                                ) : null
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>

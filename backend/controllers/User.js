@@ -8,13 +8,21 @@ exports.getUserData = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
         const blogs = await Promise.all(user.blogID.map(async (blogId) => {
-            return await Blog.findById(blogId);
+            try {
+                return await Blog.findById(blogId);
+            } catch (error) {
+                console.error(`Error finding blog with ID ${blogId}:`, error);
+                return null; // Return null if blog is not found
+            }
         }));
 
-        user.set('blogs', blogs);
+        // Filter out null values from the blogs array
+        const validBlogs = blogs.filter(blog => blog !== null);
+
+        user.set('blogs', validBlogs);
         const responseData = {
             userData: user,
-            blogData: blogs
+            blogData: validBlogs
         }
         res.status(200).json(responseData);
     } catch (error) {

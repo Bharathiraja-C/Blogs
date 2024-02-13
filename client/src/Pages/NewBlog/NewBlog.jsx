@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './NewBlog.css';
@@ -9,20 +9,53 @@ const NewBlog = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [author, setAuthor] = useState(localStorage.getItem('name'));
+    const [editId, setEditId] = useState(sessionStorage.getItem('editId'))
 
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await axios.post(`http://localhost:5000/newBlog/${localStorage.getItem('id')}`, {title, author, content})
-            if(res.status === 201){
-                navigate(`/blog/${res.data._id}`)
+        if(editId){
+            e.preventDefault();
+            try {
+                const res = await axios.post(`http://localhost:5000/updateBlog/${editId}`, { title, author, content })
+                if (res.status === 200) {
+                    navigate(`/blog/${editId}`)
+                }
+            } catch (error) {
+                console.error('Error:', error);
             }
-        } catch (error) {
-            console.error('Error:', error);
+        }
+        else{
+            e.preventDefault();
+            try {
+                const res = await axios.post(`http://localhost:5000/newBlog/${localStorage.getItem('id')}`, { title, author, content })
+                if (res.status === 201) {
+                    navigate(`/blog/${res.data._id}`)
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         }
     };
+
+    useEffect(() => {
+        const getBlogData = async () => {
+            try {
+                const res = await axios.get(`http://localhost:5000/getBlogById/${editId}`)
+                if (res.status === 200) {
+                    setTitle(res.data.title)
+                    setContent(res.data.content)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        if (editId) {
+            getBlogData()
+            sessionStorage.removeItem('editId')
+        }
+    }, [])
 
     return (
         <div className='form-head1'>

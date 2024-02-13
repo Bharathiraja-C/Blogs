@@ -6,16 +6,17 @@ import Home from './Pages/HomePage/Home';
 import BlogPostPage from './Pages/BlogRead/BlogRead';
 import NewBlog from './Pages/NewBlog/NewBlog';
 import HeroDiv from './Components/HeroDiv/HeroDiv';
+import Navbar from './Components/UserProfile/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/User/:id' element={<UserProfile />} />
+        <Route path='/User/:id' element={<><Navbar /><UserProfile /></>} />
         <Route path='/Auth' element={<UserAuth />} />
-        <Route path='/blog/:id' element={<BlogPostPage />} />
-        <Route path='/newBlog' element={<NewBlog/>}/>
+        <Route path='/blog/:id' element={<><Navbar /><BlogPostPage /></>} />
+        <Route path='/newBlog' element={<><Navbar /><NewBlog/></>}/>
         <Route path='/hero' element={<HeroDiv/>}/>
       </Routes>
     </BrowserRouter>

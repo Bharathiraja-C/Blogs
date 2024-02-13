@@ -13,6 +13,19 @@
     justify-content: space-between;
 }
 
+.button-style{
+    height: 40px;
+    width: 120px;
+    margin-top: 30px;
+    margin-left: 40px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(rgb(74, 74, 114), rgb(77, 121, 122));
+    cursor: pointer;
+}
+
 .profile-head button {
     height: 40px;
     width: 70px;
