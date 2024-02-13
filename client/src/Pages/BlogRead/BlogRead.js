@@ -18,7 +18,11 @@ function BlogPostPage() {
         <p><strong>Date Modified:</strong> {blogPost.dateModified}</p>
         <div className="blog-content">
           <p>{blogPost.content}</p>
-          <a href='/'><button>Back</button></a>
+          <div className="blog-buttons">
+            <button>Edit</button>
+            <button>Delete</button>
+            <a href='/'><button style={{marginLeft:'575px'}}>Back</button></a>
+          </div>
         </div>
       </div>
     </div>
