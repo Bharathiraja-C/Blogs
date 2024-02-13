@@ -5,7 +5,7 @@ import UserAuth from './Pages/UserAuth/UserAuth';
 import Home from './Pages/HomePage/Home';
 import BlogPostPage from './Pages/BlogRead/BlogRead';
 import NewBlog from './Pages/NewBlog/NewBlog';
-import HeroDiv from './Pages/HomePage/HeroDiv';
+import HeroDiv from './Components/HeroDiv/HeroDiv';
 
 function App() {
   return (
