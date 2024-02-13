@@ -1,8 +1,15 @@
 const Blog = require('../models/Blog'); // Import the Blog model
 const  User= require('../models/User') // import the user model to append blogID
+
+
+
+
+
 exports.getAllBlogs = async (req, res) => {
     try {
-        const data = await Blog.find();
+            const limit = Number(req.query.limit) || 9; 
+        
+        const data = await Blog.find().limit(limit); 
         res.status(201).json(data);
     } catch (error) {
         res.status(500).send(error.message);
@@ -62,3 +69,31 @@ exports.updateBlog = async (req, res) => {
       res.status(500).send(error.message);
     }
   };
+
+
+  exports.deleteBlogById = async (req, res) => {
+    try {
+        const blogid = req.params.blogid;
+        
+        const deletedBlog = await Blog.findByIdAndDelete(blogid);
+        if (!deletedBlog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+        res.status(200).json({ message: "Blog deleted successfully" });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
+exports.getBlogById = async (req, res) => {
+    try {
+        const blogid = req.params.blogid;
+        const blog = await Blog.findById(blogid);
+        if (!blog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+        res.status(200).json(blog);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
