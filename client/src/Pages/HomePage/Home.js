@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../../Components/UserProfile/Navbar";
+import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
-// import HeroDiv from "./HeroDiv";
+import HeroDiv from "../../Components/HeroDiv/HeroDiv"
 
 function Home() {
   return (
-    <div>
+    <div className="Home">
       <Navbar />
-      {/* <HeroDiv /> */}
+      <HeroDiv />
       <div
         className="container-fluid  mt-4 ml-0"
         style={{
@@ -112,16 +112,7 @@ function Home() {
       </div>
 
       <div style={{ display: "flex", marginTop: "5px" }}>
-        <div className="left-content"
-          
-          style={{
-            flex: "0 0 60%",
-            overflowY: "auto",
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "20px",
-          }}
-        >
+        <div className="left-content">
           <div className="list-item">
             <div className="p-2">
               <div style={{ display: "flex", alignItems: "center" }}>
@@ -218,8 +209,14 @@ function Home() {
         </div>
         <div className="Right-content">
           <div>
-            <h5 style={{ textAlign: "left", marginBottom: "20px",fontWeight:"bold" }}>
-            Discover more of what matters to you
+            <h5
+              style={{
+                textAlign: "left",
+                marginBottom: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              Discover more of what matters to you
             </h5>
             <div className="topic">
               <button className="button">Technology</button>

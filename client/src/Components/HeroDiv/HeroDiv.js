@@ -9,7 +9,7 @@ function HeroDiv(){
           <button className="butn">Start Reading</button>
           </div>
           <div >
-            <img src="https://static.vecteezy.com/system/resources/previews/000/518/198/original/woman-working-with-computer-bright-colorful-vector-illustration.jpg" width={400} alt="Icon"/>
+            <img src="https://i.pinimg.com/564x/23/94/b2/2394b2dcfe17c44ddb52b5f6be98dd05.jpg" width={400} height={300} alt="Icon"/>
           </div>
         </div>
       );
