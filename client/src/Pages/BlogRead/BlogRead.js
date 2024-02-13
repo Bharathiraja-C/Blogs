@@ -15,7 +15,7 @@ function BlogPostPage() {
     const getBlogData = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/getBlogById/${id}`)
-        if(res.status === 200){
+        if (res.status === 200) {
           setBlogPost(res.data)
         }
       } catch (error) {
@@ -24,7 +24,7 @@ function BlogPostPage() {
     }
 
     getBlogData()
-  },[])
+  }, [])
 
   const editBlog = async () => {
     sessionStorage.setItem('editId', id)
@@ -34,7 +34,7 @@ function BlogPostPage() {
   const deleteBlog = async () => {
     try {
       const res = await axios.delete(`http://localhost:5000/deleteBlogById/${id}`)
-      if(res.status === 200){
+      if (res.status === 200) {
         navigate(`/User/${localStorage.getItem('id')}`)
       }
     } catch (error) {
@@ -49,11 +49,16 @@ function BlogPostPage() {
         <p><strong>Author:</strong> {blogPost.author}</p>
         <p><strong>Date Modified:</strong> {blogPost.createdAt}</p>
         <div className="blog-content">
-          <p style={{whiteSpace: "pre-wrap"}}>{blogPost.content}</p>
-          <div className="blog-buttons">
-            <button onClick={editBlog}>Edit</button>
-            <button onClick={deleteBlog}>Delete</button>
-            <button style={{marginLeft:'575px'}}>Back</button>
+          <p style={{ whiteSpace: "pre-wrap" }}>{blogPost.content}</p>
+          <div className="blog-buttons" style={{ display: "flex", justifyContent: "space-between" }}>
+            <div>
+              {
+                // localStorage.getItem('id') === 
+              }
+              <button onClick={editBlog}>Edit</button>
+              <button onClick={deleteBlog}>Delete</button>
+            </div>
+            <button onClick={() => navigate('/')} >Back to Home</button>
           </div>
         </div>
       </div>

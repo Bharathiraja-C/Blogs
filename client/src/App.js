@@ -6,7 +6,7 @@ import Home from './Pages/HomePage/Home';
 import BlogPostPage from './Pages/BlogRead/BlogRead';
 import NewBlog from './Pages/NewBlog/NewBlog';
 import HeroDiv from './Components/HeroDiv/HeroDiv';
-import Navbar from './Components/UserProfile/Navbar';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
