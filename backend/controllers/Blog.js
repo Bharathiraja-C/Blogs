@@ -1,9 +1,18 @@
 const Blog = require('../models/Blog'); // Import the Blog model
 const  User= require('../models/User') // import the user model to append blogID
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 8917b7cbe7c710d70d9272ea3e8ac53b4ac15b7a
 exports.getAllBlogs = async (req, res) => {
     try {
-        const data = await Blog.find();
+            const limit = Number(req.query.limit) || 6; 
+        
+        const data = await Blog.find().limit(limit); 
         res.status(201).json(data);
     } catch (error) {
         res.status(500).send(error.message);

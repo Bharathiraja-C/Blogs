@@ -1,15 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './BlogRead.css';
+import axios from 'axios'
 
 function BlogPostPage() {
   // Example blog post data
+  let { id } = useParams();
+
+  const [blogPost, setBlogPost] = useState({})
 
   useEffect(() => {
     const getBlogData = async () => {
-      let { id } = useParams();
       try {
-        const res = await axios.get('')
+        const res = await axios.get(`http://localhost:5000/getBlogById/${id}`)
+        if(res.status === 200){
+          setBlogPost(res.data)
+        }
       } catch (error) {
         console.log(error)
       }
@@ -18,13 +24,6 @@ function BlogPostPage() {
     getBlogData()
   },[])
 
-  const blogPost = {
-    title: "Sample Blog Post",
-    author: "John Doe",
-    createdAt: "February 12, 2024",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus nec nunc suscipit ultricies. Nam sed justo ut odio suscipit fringilla. Integer vitae nisl non felis consequat auctor. Mauris non elit metus. Cras eu tellus vitae velit aliquet tempor. Morbi non fermentum quam. Sed tincidunt dui nec est rutrum suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at ligula eu mauris feugiat pretium. Donec id orci vitae lacus volutpat dictum sed in elit. Nulla facilisi. Nam vel justo nec nunc congue eleifend non nec odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus nec nunc suscipit ultricies. Nam sed justo ut odio suscipit fringilla. Integer vitae nisl non felis consequat auctor. Mauris non elit metus. Cras eu tellus vitae velit aliquet tempor. Morbi non fermentum quam. Sed tincidunt dui nec est rutrum suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at ligula eu mauris feugiat pretium. Donec id orci vitae lacus volutpat dictum sed in elit. Nulla facilisi. Nam vel justo nec nunc congue eleifend non nec odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus nec nunc suscipit ultricies. Nam sed justo ut odio suscipit fringilla. Integer vitae nisl non felis consequat auctor. Mauris non elit metus. Cras eu tellus vitae velit aliquet tempor. Morbi non fermentum quam. Sed tincidunt dui nec est rutrum suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at ligula eu mauris feugiat pretium. Donec id orci vitae lacus volutpat dictum sed in elit. Nulla facilisi. Nam vel justo nec nunc congue eleifend non nec odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-  };
-
   return (
     <div className="blog-post-container">
       <div className="blog-post">
@@ -32,7 +31,7 @@ function BlogPostPage() {
         <p><strong>Author:</strong> {blogPost.author}</p>
         <p><strong>Date Modified:</strong> {blogPost.createdAt}</p>
         <div className="blog-content">
-          <p>{blogPost.content}</p>
+          <p style={{whiteSpace: "pre-wrap"}}>{blogPost.content}</p>
           <div className="blog-buttons">
             <button>Edit</button>
             <button>Delete</button>
