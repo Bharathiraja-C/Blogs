@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../../Components/UserProfile/Navbar";
+import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
-// import HeroDiv from "./HeroDiv";
+import HeroDiv from "../../Components/HeroDiv/HeroDiv";
 
 function Home() {
   return (
-    <div>
+    <div className="Home">
       <Navbar />
-      {/* <HeroDiv /> */}
+      <HeroDiv />
       <div
         className="container-fluid  mt-4 ml-0"
         style={{
@@ -111,24 +111,15 @@ function Home() {
         </div>
       </div>
 
-      <div style={{ display: "flex", marginTop: "5px" }}>
-        <div className="left-content"
-          
-          style={{
-            flex: "0 0 60%",
-            overflowY: "auto",
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "20px",
-          }}
-        >
+      <div className="box" >
+        <div className="left-content">
           <div className="list-item">
             <div className="p-2">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img
+              <div className="user-info">
+              <img
                   src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
                   alt="Profile"
-                  style={{ width: "30px", height: "30px", marginRight: "10px" }}
+                  
                 />
                 <p style={{ marginBottom: "0px" }}>its_manii7</p>
               </div>
@@ -154,8 +145,8 @@ function Home() {
             </div>
           </div>
           <div className="list-item">
-            <div className="text-black p-2">
-              <div style={{ display: "flex", alignItems: "center" }}>
+            <div className="p-2">
+              <div className="user-info">
                 <img
                   src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
                   alt="Profile"
@@ -186,7 +177,7 @@ function Home() {
           </div>
           <div className="list-item">
             <div className="p-2">
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="user-info">
                 <img
                   src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
                   alt="Profile"
@@ -218,8 +209,14 @@ function Home() {
         </div>
         <div className="Right-content">
           <div>
-            <h5 style={{ textAlign: "left", marginBottom: "20px",fontWeight:"bold" }}>
-            Discover more of what matters to you
+            <h5
+              style={{
+                textAlign: "left",
+                marginBottom: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              Discover more of what matters to you
             </h5>
             <div className="topic">
               <button className="button">Technology</button>
@@ -231,8 +228,9 @@ function Home() {
               <button className="button">Social Media</button>
               <button className="button">Robotics</button>
               <button className="button">ChatBot</button>
-              <button className="button">Networking</button>
               <button className="button">Cloud</button>
+              <button className="button">Networking</button>
+              
               <button className="button">Malware</button>
             </div>
           </div>

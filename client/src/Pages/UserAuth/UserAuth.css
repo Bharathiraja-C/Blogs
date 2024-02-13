@@ -5,6 +5,11 @@
     width: 30%;
     background-color: rgb(226,226,226);
 }
+@media screen and (max-width: 820px) {
+    .form-head {
+      width: 70%;
+    }
+  }
 .login-head{
     padding-bottom: 20px;
     font-size: 35px;

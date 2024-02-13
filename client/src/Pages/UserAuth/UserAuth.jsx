@@ -56,6 +56,7 @@ const UserAuth = () => {
 	}
 
 	return (
+	
 		<div className="form-head">
 			{isSignup ? (
 				<>

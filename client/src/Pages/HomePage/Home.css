@@ -1,9 +1,18 @@
 .col-md-3 {
-    /* border: 1px solid #ccc; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-    /* background-color: rgb(226,226,226); */
+    /* border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgb(226, 226, 226); */
     margin-right: 20px;
 
+}
+body {
+    overflow-x: hidden; /* Hide scrollbars */
+  }
+.Home {
+    /* background-image: radial-gradient(circle 311px at 8.6% 27.9%, rgba(62, 147, 252, 0.57) 12.9%, rgba(239, 183, 192, 0.44) 91.2%); */
+    background-color: rgb(226, 226, 226);
+    height: 100%;
+    width: 100%;
 }
 
 content {
@@ -34,36 +43,77 @@ div p {
     height: 150px;
 }
 
+.box {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+    .box {
+      flex-direction: column;
+    }
+  }
+
+.left-content {
+    flex: 0 0 60%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 600px) {
+    .left-content .list-item {
+      width: 100%;
+    }
+    .left-content h6,
+  .left-content content {
+    font-size: 0.9rem;
+  }
+  }
+  
+.user-info img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+
+
 .list-item {
     width: 80%;
     margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .user-info {
+    display: flex;
     margin-bottom: 0px;
+    align-items: flex-start;
 }
 
 .right-content {
     margin-left: 20px;
     flex: 30%;
     right: 0;
-    
-    
+
+
 }
 
-.topic
-{
+.topic {
     display: flex;
     flex-wrap: wrap;
-    gap:10px;
+    gap: 10px;
 
 }
 
 .button {
     background-color: #f1f1f1;
     border-radius: 20px;
-    border:none;
+    border: none;
     margin-bottom: 10px;
     padding: 10px 20px;
     display: block;

@@ -7,12 +7,27 @@
     font-size: 75px;
     margin-left: 15px;
 }
-
+@media screen and (max-width:600px){
+    .welcome{
+        font-size:60px;
+        margin-bottom: -20px;
+    }
+    .club{
+        font-size: 40px;
+    }
+}
 .hero{
     background-color: rgb(96, 200, 231);
-    margin-top: 20px;
     padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.text-container {
+    max-width: 50%;
+    margin-right: 2.5vw;
 }
 
 .butn{
@@ -22,6 +37,16 @@
     margin-left: 20px;
 }
 
-img{
-    margin-left: 180px;
+.image-container {
+    max-width: 45%;
+}
+
+img {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1130px) {
+    .image-container {
+        display: none;
+    }
 }
