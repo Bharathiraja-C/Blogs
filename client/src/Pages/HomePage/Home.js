@@ -1,11 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
 import HeroDiv from "../../Components/HeroDiv/HeroDiv";
-
-
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+
+  const navigate = useNavigate()
+  const [blogData, setBlogData] = useState([])
+
+  const [firstSix, setFirstSix] = useState([])
+  const [restOfArray, setRestOfArray] = useState([])
+
+  useEffect(() => {
+    const getAllBlogs = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/getAllBlogs')
+        if (res.status === 201) {
+          setBlogData(res.data)
+          if(blogData.length < 6){
+            setFirstSix(blogData.slice(0, blogData.length))
+          }
+          else if(blogData.length == 6){
+            setFirstSix(blogData.slice(0, 6))
+          }
+          else{
+            setFirstSix(blogData.slice(0, 6))
+            setRestOfArray(blogData.slice(6))
+          }
+          console.log("got all blogs ...")
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getAllBlogs()
+  }, [])
+
+  const showBlogs = () => {
+    console.log(firstSix)
+  }
 
   return (
     <div className="Home">
@@ -22,33 +58,38 @@ function Home() {
         <div className="row">
           {/* Title */}
           <div className="col-md-12 mb-3">
-            <h3 className="text-start">Trending Tales</h3>
+            <h3 className="text-start" onClick={showBlogs}>Trending Tales</h3>
           </div>
 
           {/* Blog Previews */}
           <div className="col-md-12 mb-4 offset-md-1 text-start">
             <div className="row gap-3 ">
-              <div className="col-md-3 mb-2">
-                <div className="text-black p-2">
-                  <p>its_manii5</p>
-                  <h6>
-                    Designing for Apple Vision Pro: Lessons Learned from
-                    Puzzling Places
-                  </h6>
+              {blogData ? (
+                blogData.map((row, index) => (
+                  <div onClick={() => navigate(`/blog/${row._id}`)} className="col-md-3 mb-2" key={index}>
+                    <div className="text-black p-2">
+                      <p>{row.author}</p>
+                      <h6>
+                        {row.title}
+                      </h6>
 
-                  <p
-                    style={{
-                      color: "gray",
-                      fontSize: "0.8rem",
-                      marginTop: "auto",
-                    }}
-                  >
-                    feb 2
-                  </p>
-                </div>
-              </div>
+                      <p
+                        style={{
+                          color: "gray",
+                          fontSize: "0.8rem",
+                          marginTop: "auto",
+                        }}
+                      >
+                        {row.createdAt}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <>Loading ...</>
+              )}
 
-              <div className="col-md-3 d-flex flex-column justify-content-between mb-2">
+              {/* <div className="col-md-3 d-flex flex-column justify-content-between mb-2">
                 <div className="text-black p-2">
                   <p>User: User 3</p>
                   <h6>The Internet’s Lonely Urban Design </h6>
@@ -108,7 +149,7 @@ function Home() {
 
                   <p style={{ color: "gray", fontSize: "0.8rem" }}>feb 2</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -119,10 +160,10 @@ function Home() {
           <div className="list-item">
             <div className="p-2">
               <div className="user-info">
-              <img
+                <img
                   src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
                   alt="Profile"
-                  
+
                 />
                 <p style={{ marginBottom: "0px" }}>its_manii7</p>
               </div>
@@ -233,7 +274,7 @@ function Home() {
               <button className="button">ChatBot</button>
               <button className="button">Cloud</button>
               <button className="button">Networking</button>
-              
+
               <button className="button">Malware</button>
             </div>
           </div>
