@@ -91,7 +91,12 @@ const UserProfile = () => {
                         </div>
                     )
                 }
-                <button className='button-style' onClick={() => navigate("/newBlog")}>Add a Blog</button>
+                {
+                    isEditing ? null : (
+                        id === localStorage.getItem('id') ?
+                            (<button className='button-style' onClick={() => navigate("/newBlog")}>Add a Blog</button>) : null
+                    )
+                }
                 <div className="blog-list">
                     {
                         blogData.map((row, index) => {

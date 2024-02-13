@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './BlogRead.css';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
@@ -46,17 +46,21 @@ function BlogPostPage() {
     <div className="blog-post-container">
       <div className="blog-post">
         <h1>{blogPost.title}</h1>
-        <p><strong>Author:</strong> {blogPost.author}</p>
+        <p><strong>Author:</strong> <Link to={`/User/${blogPost.user_id}`}>{blogPost.author}</Link></p>
         <p><strong>Date Modified:</strong> {blogPost.createdAt}</p>
         <div className="blog-content">
           <p style={{ whiteSpace: "pre-wrap" }}>{blogPost.content}</p>
           <div className="blog-buttons" style={{ display: "flex", justifyContent: "space-between" }}>
             <div>
               {
-                // localStorage.getItem('id') === 
+                localStorage.getItem('id') === blogPost.user_id ?
+                  (
+                    <>
+                      <button onClick={editBlog}>Edit</button>
+                      <button onClick={deleteBlog}>Delete</button>
+                    </>
+                  ) : null
               }
-              <button onClick={editBlog}>Edit</button>
-              <button onClick={deleteBlog}>Delete</button>
             </div>
             <button onClick={() => navigate('/')} >Back to Home</button>
           </div>

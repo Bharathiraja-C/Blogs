@@ -15,7 +15,8 @@ exports.getAllBlogs = async (req, res) => {
 exports.createBlog = async (req, res) => {
     try {
         const { title, author, content } = req.body; // Assuming your frontend sends title, author, and content
-        const newBlog = new Blog({ title, author, content });
+        const user_id = req.params.id
+        const newBlog = new Blog({ title, author, content, user_id});
         const savedBlog = await newBlog.save();
 
         // Update User's blogID array with the created blog's _id
@@ -24,7 +25,7 @@ exports.createBlog = async (req, res) => {
             console.log(User) ;
 
             await User.findByIdAndUpdate(
-                req.params.id,
+                user_id,
                 { $push: { blogID: userId } },
                 { new: true } // Return the updated user document
               );
@@ -41,6 +42,7 @@ exports.updateBlog = async (req, res) => {
     try {
       const { title, author, content } = req.body; // Assuming updated data is in req.body
       const blogId = req.params.blogid; // Extract blog ID from URL parameters
+      const userId = req.params.userid; // Extract blog ID from URL parameters
   
       // Find the existing blog document
       const blog = await Blog.findById(blogId);
@@ -54,6 +56,7 @@ exports.updateBlog = async (req, res) => {
       blog.title = title;
       blog.author = author;
       blog.content = content;
+      blog.user_id = userId;
   
       // Save the updated blog
       const updatedBlog = await blog.save();

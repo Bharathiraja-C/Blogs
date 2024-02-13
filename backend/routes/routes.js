@@ -12,7 +12,7 @@ router.post('/logIn', authController.logIn)
 
 router.get('/getAllBlogs', blogController.getAllBlogs);
 router.post('/newBlog/:id', blogController.createBlog); // Add this new route
-router.post('/updateBlog/:blogid',blogController.updateBlog) ; 
+router.post('/updateBlog/:blogid/:userid',blogController.updateBlog) ; 
 
 
 router.get('/getBlogById/:blogid', blogController.getBlogById);

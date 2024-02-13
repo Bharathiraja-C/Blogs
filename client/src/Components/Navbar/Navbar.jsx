@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 function Navbar() {
@@ -43,8 +44,10 @@ function Navbar() {
             {id ? (
               <ul className="navbar-nav flex-row ml-auto">
                 <li className="nav-item text-white mr-4 d-flex gap-2 align-items-center">
-                  <FaRegUserCircle style={{ fontSize: "2rem" }} />
-                  <span className="ml-2">{name}</span>
+                  <Link style={{color: "white", textDecoration: "none"}} to={`/User/${localStorage.getItem('id')}`} >
+                    <FaRegUserCircle style={{ fontSize: "2rem", marginRight: "5px" }} />
+                    <span className="ml-2">{name}</span>
+                  </Link>
                 </li>
               </ul>
             ) : (
