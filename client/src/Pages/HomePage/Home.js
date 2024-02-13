@@ -3,7 +3,10 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
 import HeroDiv from "../../Components/HeroDiv/HeroDiv";
 
+
+
 function Home() {
+
   return (
     <div className="Home">
       <Navbar />
