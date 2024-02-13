@@ -1,0 +1,114 @@
+.profile-main {
+    width: 70%;
+    padding: 30px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 7px;
+}
+
+.profile-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-head button {
+    height: 40px;
+    width: 70px;
+    margin-top: 20px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(rgb(74, 74, 114), rgb(77, 121, 122));
+    cursor: pointer;
+}
+
+.profile-main h3 {
+    margin-left: 40px;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: blue;
+    font-weight: 700;
+}
+
+.show-profile {
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.show-profile p,
+.show-profile h5 {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.show-profile input {
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.show-profile textarea {
+    padding: 10px;
+    font-size: 15px;
+}
+
+.show-profile button {
+    width: 80px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(rgb(74, 74, 114), rgb(77, 121, 122));
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+    .show-profile {
+        margin-left: 10px;
+    }
+
+    .profile-main h3 {
+        margin-left: 10px;
+    }
+}
+
+.blog-list {
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.one-blog-item {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.one-blog-item h6{
+    cursor: pointer;
+}
+
+.edit-button{
+    width: 80px;
+    margin-top: 10px;
+    background-image: linear-gradient(rgb(74, 74, 114), rgb(77, 121, 122));
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 15px;
+}

@@ -1,0 +1,25 @@
+
+.form-head{
+    margin: auto;
+    padding: 5%;
+    width: 30%;
+    background-color: rgb(226,226,226);
+}
+.login-head{
+    padding-bottom: 20px;
+    font-size: 35px;
+    color: blue;
+    font-style:bold;
+    
+}
+.Button{
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(rgb(74, 74, 114),rgb(77, 121, 122));
+}
+.p{
+    text-align: center
+}
+.a{
+    color: blue;
+}

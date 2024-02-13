@@ -1,0 +1,25 @@
+.col-md-3 {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+   
+
+
+}
+
+div h6 {
+    fontSize: '1.2rem';
+    marginBottom: '0.3rem';
+    marginTop: "0rem";
+}
+
+div p{
+    fontSize: '1rem';
+     marginBottom: '0px';
+     marginTop:"0rem";
+}
+
+.p-2
+{
+    height: 150px;
+}

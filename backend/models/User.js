@@ -1,16 +1,39 @@
 const mongoose = require('mongoose');
-const dataSchema = new mongoose.Schema({
 
-    // for reference
-    
-    comment: String,
-    mon: Number,
-    tue: Number,
-    wed: Number,
-    thu: Number,
-    fri: Number,
-    sat: Number,
-    sun: Number,
-})
+const userSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+        minLength: 1,
+        maxLength: 254
+    },
+    name: {
+        type: String,
+        required: true,
+        minLength: 1,
+        maxLength: 100
+    },
+    password: {
+        type: String,
+        required: true,
+        minLength: 1,
+        maxLength: 50
+    },
+    bio: {
+        type: String
+    },
+    blogID: {
+        type: [String],
+        items: {
+            type: String,
+            minLength: 1,
+            maxLength: 255
+        }
+    }
+}, {
+    timestamps: true
+});
 
-module.exports = mongoose.model('Data', dataSchema)
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

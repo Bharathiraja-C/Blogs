@@ -1,9 +1,8 @@
-const Data = require('../models/User');
 const Blog = require('../models/Blog'); // Import the Blog model
 
 exports.getAllBlogs = async (req, res) => {
     try {
-        const data = await Data.find();
+        const data = await Blog.find();
         res.status(201).json(data);
     } catch (error) {
         res.status(500).send(error.message);
