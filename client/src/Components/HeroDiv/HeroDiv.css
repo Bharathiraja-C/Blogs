@@ -30,12 +30,13 @@
     margin-right: 2.5vw;
 }
 
-.butn{
-    background-image: linear-gradient(rgb(110, 110, 110), rgb(0, 0, 0));
+.hero .btn{
     color: white;
     padding: 7px;
     margin-left: 20px;
 }
+
+
 
 .image-container {
     max-width: 45%;

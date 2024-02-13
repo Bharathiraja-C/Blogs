@@ -74,131 +74,138 @@ function Home() {
         </div>
       </div>
 
-      <div className="box" >
-        <div className="left-content">
-          <div className="list-item">
-            <div className="p-2">
-              <div className="user-info">
-                <img
-                  src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
-                  alt="Profile"
+      <div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+   
+      <div className="list-item ">
+        <div className="p-2">
+          <div className="user-info">
+            <img
+              src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
+              alt="Profile"
 
-                />
-                <p style={{ marginBottom: "0px" }}>its_manii7</p>
-              </div>
-              <h6 style={{ marginTop: "0px" }}>
-                Designing for Apple Vision Pro: Lessons Learned from Puzzling
-                Places
-              </h6>
-              <content>
-                The Apple Vision Pro presents new design challenges to consider.
-                Here are some of the lessons learned from redesigning Puzzling
-                Places from the ground up for the Apple Vision Pro.
-              </content>
-
-              <p
-                style={{
-                  color: "gray",
-                  fontSize: "0.8rem",
-                  marginTop: "auto",
-                }}
-              >
-                feb 2
-              </p>
-            </div>
+            />
+            <p style={{ marginBottom: "0px" }}>its_manii7</p>
           </div>
-          <div className="list-item">
-            <div className="p-2">
-              <div className="user-info">
-                <img
-                  src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
-                  alt="Profile"
-                  style={{ width: "30px", height: "30px", marginRight: "10px" }}
-                />
-                <p style={{ marginBottom: "0px" }}>its_manii7</p>
-              </div>
-              <h6>
-                Designing for Apple Vision Pro: Lessons Learned from Puzzling
-                Places
-              </h6>
-              <content>
-                The Apple Vision Pro presents new design challenges to consider.
-                Here are some of the lessons learned from redesigning Puzzling
-                Places from the ground up for the Apple Vision Pro.
-              </content>
+          <h6 style={{ marginTop: "0px" }}>
+            Designing for Apple Vision Pro: Lessons Learned from Puzzling
+            Places
+          </h6>
+          <content>
+            The Apple Vision Pro presents new design challenges to consider.
+            Here are some of the lessons learned from redesigning Puzzling
+            Places from the ground up for the Apple Vision Pro.
+          </content>
 
-              <p
-                style={{
-                  color: "gray",
-                  fontSize: "0.8rem",
-                  marginTop: "auto",
-                }}
-              >
-                feb 2
-              </p>
-            </div>
-          </div>
-          <div className="list-item">
-            <div className="p-2">
-              <div className="user-info">
-                <img
-                  src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
-                  alt="Profile"
-                  style={{ width: "30px", height: "30px", marginRight: "10px" }}
-                />
-                <p style={{ marginBottom: "0px" }}>its_manii7</p>
-              </div>
-              <h6 style={{ marginTop: "0px" }}>
-                Designing for Apple Vision Pro: Lessons Learned from Puzzling
-                Places
-              </h6>
-              <content>
-                The Apple Vision Pro presents new design challenges to consider.
-                Here are some of the lessons learned from redesigning Puzzling
-                Places from the ground up for the Apple Vision Pro.
-              </content>
-
-              <p
-                style={{
-                  color: "gray",
-                  fontSize: "0.8rem",
-                  marginTop: "auto",
-                }}
-              >
-                feb 2
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="Right-content">
-          <div>
-            <h5
-              style={{
-                textAlign: "left",
-                marginBottom: "20px",
-                fontWeight: "bold",
-              }}
-            >
-              Discover more of what matters to you
-            </h5>
-            <div className="topic">
-              <button className="button">Technology</button>
-              <button className="button">Internet</button>
-              <button className="button">Machine Learning</button>
-              <button className="button">Data Analytics</button>
-              <button className="button">AI</button>
-              <button className="button">Web Development</button>
-              <button className="button">Social Media</button>
-              <button className="button">Robotics</button>
-              <button className="button">ChatBot</button>
-              <button className="button">Cloud</button>
-              <button className="button">Networking</button>
-
-              <button className="button">Malware</button>
-            </div>
-          </div>
+          <p
+            style={{
+              color: "gray",
+              fontSize: "0.8rem",
+              marginTop: "auto",
+            }}
+          >
+            feb 2
+          </p>
         </div>
       </div>
+      <div className="list-item">
+        <div className="p-2">
+          <div className="user-info">
+            <img
+              src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
+              alt="Profile"
+              style={{ width: "30px", height: "30px", marginRight: "10px" }}
+            />
+            <p style={{ marginBottom: "0px" }}>its_manii7</p>
+          </div>
+          <h6>
+            Designing for Apple Vision Pro: Lessons Learned from Puzzling
+            Places
+          </h6>
+          <content>
+            The Apple Vision Pro presents new design challenges to consider.
+            Here are some of the lessons learned from redesigning Puzzling
+            Places from the ground up for the Apple Vision Pro.
+          </content>
+
+          <p
+            style={{
+              color: "gray",
+              fontSize: "0.8rem",
+              marginTop: "auto",
+            }}
+          >
+            feb 2
+          </p>
+        </div>
+      </div>
+      <div className="list-item">
+        <div className="p-2">
+          <div className="user-info">
+            <img
+              src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
+              alt="Profile"
+              style={{ width: "30px", height: "30px", marginRight: "10px" }}
+            />
+            <p style={{ marginBottom: "0px" }}>its_manii7</p>
+          </div>
+          <h6 style={{ marginTop: "0px" }}>
+            Designing for Apple Vision Pro: Lessons Learned from Puzzling
+            Places
+          </h6>
+          <content>
+            The Apple Vision Pro presents new design challenges to consider.
+            Here are some of the lessons learned from redesigning Puzzling
+            Places from the ground up for the Apple Vision Pro.
+          </content>
+
+          <p
+            style={{
+              color: "gray",
+              fontSize: "0.8rem",
+              marginTop: "auto",
+            }}
+          >
+            feb 2
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-">
+    <div className="Right-content">
+      <div>
+        <h5
+          style={{
+            textAlign: "left",
+            marginBottom: "20px",
+            fontWeight: "bold",
+          }}
+        >
+          Discover more of what matters to you
+        </h5>
+        <div className="topic">
+          <button className="button">Technology</button>
+          <button className="button">Internet</button>
+          <button className="button">Machine Learning</button>
+          <button className="button">Data Analytics</button>
+          <button className="button">AI</button>
+          <button className="button">Web Development</button>
+          <button className="button">Social Media</button>
+          <button className="button">Robotics</button>
+          <button className="button">ChatBot</button>
+          <button className="button">Cloud</button>
+          <button className="button">Networking</button>
+
+          <button className="button">Malware</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+      
     </div>
   );
 }

@@ -58,9 +58,9 @@ function Navbar() {
           <ul className="navbar-nav flex-row">
             {id ? (
               <ul className="navbar-nav flex-row ml-auto">
-                <li className="nav-item text-white mr-4 d-flex gap-2 align-items-center">
+                <li className="nav-item text-white mr-4 d-flex align-items-center">
                   <Link style={{color: "white", textDecoration: "none"}} to={`/User/${localStorage.getItem('id')}`} >
-                    <FaRegUserCircle style={{ fontSize: "2rem", marginRight: "5px" }} />
+                    <FaRegUserCircle style={{ fontSize: "2rem", marginRight: "10px" }} />
                     <span className="ml-2">{name}</span>
                   </Link>
                 </li>
