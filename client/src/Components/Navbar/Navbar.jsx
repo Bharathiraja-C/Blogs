@@ -13,13 +13,13 @@ function Navbar() {
       style={{ backgroundColor: "#171721" }}
     >
       <div className="container">
-        <a className="navbar-brand" href="#" style={navstyle}>
+        <a className="navbar-brand" href="/" style={navstyle}>
           Tech Tales
         </a>
         <div className="ml-auto mr-4px d-flex align-items-center">
           <ul className="navbar-nav flex-row">
             <li className="nav-item">
-              <a className="nav-link flex-grow-0 flex-shrink-0 mr-2" href="#">
+              <a className="nav-link flex-grow-0 flex-shrink-0 mr-2" href="/Auth">
                 Sign In
               </a>
             </li>
