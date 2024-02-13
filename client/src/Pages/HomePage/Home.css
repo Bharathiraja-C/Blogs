@@ -64,6 +64,16 @@ div p {
     align-items: flex-start;
 }
 
+@media screen and (max-width: 600px) {
+    .left-content .list-item {
+      width: 100%;
+    }
+    .left-content h6,
+  .left-content content {
+    font-size: 0.9rem;
+  }
+  }
+  
 .user-info img {
     width: 30px;
     height: 30px;
