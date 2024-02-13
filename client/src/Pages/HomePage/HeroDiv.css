@@ -1,9 +1,11 @@
 .welcome{
-    font-size: 150px;
+    font-size: 120px;
+    margin-bottom: -60px;
 }
 
 .club{
     font-size: 75px;
+    margin-left: 15px;
 }
 
 .hero{
@@ -17,4 +19,9 @@
     background-image: linear-gradient(rgb(74, 74, 114),rgb(77, 121, 122));
     color: white;
     padding: 7px;
+    margin-left: 20px;
+}
+
+img{
+    margin-left: 180px;
 }

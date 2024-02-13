@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../Components/UserProfile/Navbar";
 import "./Home.css";
-import HeroDiv from '../../Components/UserProfile/HeroDiv';
+// import HeroDiv from "./HeroDiv";
 
 function Home() {
   return (
