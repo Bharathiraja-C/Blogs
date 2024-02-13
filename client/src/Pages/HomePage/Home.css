@@ -39,13 +39,34 @@ div p {
     height: 150px;
 }
 
+.box {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+    .box {
+      flex-direction: column;
+    }
+  }
+
 .left-content {
     flex: 0 0 60%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    align-items: flex-start;
 }
+
+.user-info img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
 
 
 .list-item {
@@ -55,7 +76,9 @@ div p {
 }
 
 .user-info {
+    display: flex;
     margin-bottom: 0px;
+    align-items: flex-start;
 }
 
 .right-content {

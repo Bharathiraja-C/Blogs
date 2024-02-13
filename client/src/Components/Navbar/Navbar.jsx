@@ -1,5 +1,5 @@
 import React from "react";
-//Navbar
+import './Navbar.css';
 function Navbar() {
   const navstyle = {
     marginLeft: "5px",
