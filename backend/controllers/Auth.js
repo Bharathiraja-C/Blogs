@@ -12,7 +12,7 @@ exports.signUp = async (req, res) => {
         const newUser = new User({ email, name, password, bio, blogID });
         await newUser.save();
         
-        res.status(201).json({ message: 'User signed up successfully' });
+        res.status(201).json({ message: 'User signed up successfully', id: newUser._id });
 
     } catch (error) {
         res.status(500).json({ error: 'Server error' });

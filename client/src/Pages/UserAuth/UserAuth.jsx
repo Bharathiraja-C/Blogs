@@ -10,47 +10,48 @@ const UserAuth = () => {
 	const [isSignup, setIsSignUp] = useState(true);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  
-  const navigate = useNavigate();
+	const [name, setName] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      const res = await axios.post("http://localhost:5000/signUp", { email, name, password });
-      if (res.status === 201) {
-        // localStorage.setItem
-        navigate('/');
-      }
-    }
-    catch (err) {
-      console.log(err)
-      if (err.response.status === 401) {
-        alert(err.response.data.error)
-      }
-      else {
-        alert("Internal Server Error")
-      }
-    }
-  };
-  
-  const loginValidate = async (e) => {
-    e.preventDefault()
-    try {
-      const res = await axios.post("http://localhost:5000/logIn", { email, password })
-      if (res.status === 201) {
-        navigate('/')
-      }
-    } catch (err) {
-      console.log(err)
-      if (err.response.status === 401 || err.response.status === 402) {
-        alert(err.response.data.error)
-      }
-      else {
-        alert("Internal Server Error")
-      }
-    }
-  }
+	const navigate = useNavigate();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		try {
+			const res = await axios.post("http://localhost:5000/signUp", { email, name, password });
+			if (res.status === 201) {
+				localStorage.setItem('id', res.data.id)
+				navigate(`/User/${res.data.id}`);
+			}
+		}
+		catch (err) {
+			console.log(err)
+			if (err.response.status === 401) {
+				alert(err.response.data.error)
+			}
+			else {
+				alert("Internal Server Error")
+			}
+		}
+	};
+
+	const loginValidate = async (e) => {
+		e.preventDefault()
+		try {
+			const res = await axios.post("http://localhost:5000/logIn", { email, password })
+			if (res.status === 201) {
+				localStorage.setItem('id', res.data.id)
+				navigate('/')
+			}
+		} catch (err) {
+			console.log(err)
+			if (err.response.status === 401 || err.response.status === 402) {
+				alert(err.response.data.error)
+			}
+			else {
+				alert("Internal Server Error")
+			}
+		}
+	}
 
 	return (
 		<div className="form-head">
@@ -72,9 +73,9 @@ const UserAuth = () => {
 					<Form onSubmit={loginValidate}>
 						<Form.Group controlId="formBasicEmail">
 							<Form.Label>Email Id</Form.Label>
-              <Form.Control
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+							<Form.Control
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
 								type="email"
 								placeholder="Enter email"
 							/>
@@ -83,9 +84,9 @@ const UserAuth = () => {
 
 						<Form.Group controlId="formBasicPassword">
 							<Form.Label>Password</Form.Label>
-              <Form.Control
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+							<Form.Control
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
 								type="password"
 								placeholder="Password"
 							/>
