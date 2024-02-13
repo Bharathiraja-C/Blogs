@@ -25,7 +25,9 @@ function Navbar() {
             </li>
             <li className="nav-item flex-grow-0 flex-shrink-0 ml-2">
               <button className="btn btn-dark rounded-pill mr-2">
-                Get Started
+                <a href="\blog\id:" style={{textDecoration:'none', color:'white'}}>
+                  Get Started
+                </a>
               </button>
             </li>
           </ul>
