@@ -10,26 +10,12 @@ function Home() {
   const navigate = useNavigate()
   const [blogData, setBlogData] = useState([])
 
-  const [firstSix, setFirstSix] = useState([])
-  const [restOfArray, setRestOfArray] = useState([])
-
   useEffect(() => {
     const getAllBlogs = async () => {
       try {
         const res = await axios.get('http://localhost:5000/getAllBlogs')
         if (res.status === 201) {
           setBlogData(res.data)
-          if(blogData.length < 6){
-            setFirstSix(blogData.slice(0, blogData.length))
-          }
-          else if(blogData.length == 6){
-            setFirstSix(blogData.slice(0, 6))
-          }
-          else{
-            setFirstSix(blogData.slice(0, 6))
-            setRestOfArray(blogData.slice(6))
-          }
-          console.log("got all blogs ...")
         }
       } catch (error) {
         console.log(error)
@@ -38,10 +24,6 @@ function Home() {
 
     getAllBlogs()
   }, [])
-
-  const showBlogs = () => {
-    console.log(firstSix)
-  }
 
   return (
     <div className="Home">
@@ -58,7 +40,7 @@ function Home() {
         <div className="row">
           {/* Title */}
           <div className="col-md-12 mb-3">
-            <h3 className="text-start" onClick={showBlogs}>Trending Tales</h3>
+            <h3 className="text-start">Trending Tales</h3>
           </div>
 
           {/* Blog Previews */}
@@ -66,90 +48,27 @@ function Home() {
             <div className="row gap-3 ">
               {blogData ? (
                 blogData.map((row, index) => (
-                  <div onClick={() => navigate(`/blog/${row._id}`)} className="col-md-3 mb-2" key={index}>
-                    <div className="text-black p-2">
-                      <p>{row.author}</p>
-                      <h6>
-                        {row.title}
-                      </h6>
-
-                      <p
-                        style={{
-                          color: "gray",
-                          fontSize: "0.8rem",
-                          marginTop: "auto",
-                        }}
-                      >
-                        {row.createdAt}
-                      </p>
+                  index <= 5 ? (
+                    <div onClick={() => navigate(`/blog/${row._id}`)} className="col-md-3 mb-2" key={index}>
+                      <div className="text-black p-2">
+                        <p>User: {row.author}</p>
+                        <h6>{row.title}</h6>
+                        <p
+                          style={{
+                            color: "gray",
+                            fontSize: "0.8rem",
+                            marginTop: "auto",
+                          }}
+                        >
+                          {row.createdAt}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  ) : null
                 ))
               ) : (
                 <>Loading ...</>
               )}
-
-              {/* <div className="col-md-3 d-flex flex-column justify-content-between mb-2">
-                <div className="text-black p-2">
-                  <p>User: User 3</p>
-                  <h6>The Internet’s Lonely Urban Design </h6>
-
-                  <p
-                    style={{
-                      color: "gray",
-                      fontSize: "0.8rem",
-                      marginTop: "auto",
-                    }}
-                  >
-                    feb 2
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-md-3 d-flex flex-column justify-content-between mb-2">
-                <div className="text-black p-2">
-                  <p>User: User 3</p>
-                  <h6>
-                    Designing for Apple Vision Pro: Lessons Learned from
-                    Puzzling Places
-                  </h6>
-
-                  <p style={{ color: "gray", fontSize: "0.8rem" }}>feb 2</p>
-                </div>
-              </div>
-
-              <div className="col-md-3 d-flex flex-column justify-content-between mb-2">
-                <div className="text-black p-2">
-                  <p>User: User 3</p>
-                  <h6>Will AI Replace All Coders? </h6>
-
-                  <p style={{ color: "gray", fontSize: "0.8rem" }}>feb 2</p>
-                </div>
-              </div>
-              <div className="col-md-3 d-flex flex-column justify-content-between mb-2">
-                <div className="text-black p-2">
-                  <p>User: User 3</p>
-                  <h6>Will AI Replace All Coders? </h6>
-
-                  <p
-                    style={{
-                      color: "gray",
-                      fontSize: "0.8rem",
-                      marginTop: "auto",
-                    }}
-                  >
-                    feb 2
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-3 mb-2">
-                <div className="text-black p-2">
-                  <p>User: User 3</p>
-                  <h6>Will AI Replace All Coders? </h6>
-
-                  <p style={{ color: "gray", fontSize: "0.8rem" }}>feb 2</p>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
