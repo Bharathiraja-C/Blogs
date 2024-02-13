@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import './UserProfile.css'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import Navbar from "../../Components/UserProfile/Navbar";
+import Navbar from '../../Components/Navbar/Navbar';
 
 const UserProfile = () => {
 
