@@ -5,6 +5,7 @@ import UserAuth from './Pages/UserAuth/UserAuth';
 import Home from './Pages/HomePage/Home';
 import BlogPostPage from './Pages/BlogRead/BlogRead';
 import NewBlog from './Pages/NewBlog/NewBlog';
+import HeroDiv from './Components/HeroDiv/HeroDiv';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path='/Auth' element={<UserAuth />} />
         <Route path='/blog/:id' element={<BlogPostPage />} />
         <Route path='/newBlog' element={<NewBlog/>}/>
-
+        <Route path='/hero' element={<HeroDiv/>}/>
       </Routes>
     </BrowserRouter>
   );
