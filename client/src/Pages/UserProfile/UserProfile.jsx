@@ -11,7 +11,7 @@ const UserProfile = () => {
     const { id } = useParams();
 
     const [userData, setUserData] = useState({})
-    const [blogData, setBlogData] = useState({})
+    const [blogData, setBlogData] = useState([{}])
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,8 +19,8 @@ const UserProfile = () => {
             try {
                 const res = await axios.get(`http://localhost:5000/getUserData/${id}`)
                 if (res.status === 200) {
-                    setUserData(res.data)
-                    setBlogData(res.data.blogs)
+                    setUserData(res.data.userData)
+                    setBlogData(res.data.blogData)
                 }
             } catch (error) {
                 console.log(error)
@@ -51,8 +51,8 @@ const UserProfile = () => {
         }));
     }
 
-    const gotoBlog = () => {
-        navigate('/blog/123')
+    const gotoBlog = (id) => {
+        navigate(`/blog/${id}`)
     }
 
     return (
@@ -94,10 +94,16 @@ const UserProfile = () => {
                     )
                 }
                 <div className="blog-list">
-                    <div className='one-blog-item' onClick={gotoBlog}>
-                        <h6><h5>Title</h5>by {userData.name}</h6>
-                        <p>DD/MM/YYYY HH:MM:SS</p>
-                    </div>
+                {
+                    blogData.map((row, index) => {
+                        return (
+                            <div key={index} className='one-blog-item' onClick={() => navigate(`/blog/${row._id}`)}>
+                                <h6><h5>{row.title}</h5>by {row.author}</h6>
+                                <p>{row.createdAt}</p>
+                            </div>
+                        )
+                    })
+                }
                 </div>
             </div>
         </>

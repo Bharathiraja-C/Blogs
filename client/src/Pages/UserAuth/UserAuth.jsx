@@ -19,8 +19,9 @@ const UserAuth = () => {
 		try {
 			const res = await axios.post("http://localhost:5000/signUp", { email, name, password });
 			if (res.status === 201) {
-				localStorage.setItem('id', res.data.id)
-				navigate(`/User/${res.data.id}`);
+				localStorage.setItem('id', res.data.user._id)
+				localStorage.setItem('name', res.data.user.name)
+				navigate(`/User/${res.data.user._id}`);
 			}
 		}
 		catch (err) {
@@ -39,7 +40,8 @@ const UserAuth = () => {
 		try {
 			const res = await axios.post("http://localhost:5000/logIn", { email, password })
 			if (res.status === 201) {
-				localStorage.setItem('id', res.data.id)
+				localStorage.setItem('id', res.data.user._id)
+				localStorage.setItem('name', res.data.user.name)
 				navigate('/')
 			}
 		} catch (err) {

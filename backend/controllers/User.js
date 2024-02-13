@@ -7,10 +7,16 @@ exports.getUserData = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-        const blogIds = user.blogID;
-        const blogs = await Blog.find({ _id: { $in: blogIds } });
-        user.blogs = blogs;
-        res.status(200).json(user);
+        const blogs = await Promise.all(user.blogID.map(async (blogId) => {
+            return await Blog.findById(blogId);
+        }));
+
+        user.set('blogs', blogs);
+        const responseData = {
+            userData: user,
+            blogData: blogs
+        }
+        res.status(200).json(responseData);
     } catch (error) {
         res.status(500).send(error.message);
     }

@@ -12,7 +12,7 @@ exports.signUp = async (req, res) => {
         const newUser = new User({ email, name, password, bio, blogID });
         await newUser.save();
         
-        res.status(201).json({ message: 'User signed up successfully', id: newUser._id });
+        res.status(201).json({ message: 'User signed up successfully', user: newUser });
 
     } catch (error) {
         res.status(500).json({ error: 'Server error' });
@@ -32,7 +32,7 @@ exports.logIn = async (req, res) => {
             return res.status(402).json({ error: 'Invalid password' });
         }
 
-        res.status(201).json({ message: 'Login successful', id: user._id});
+        res.status(201).json({ message: 'Login successful', user: user});
 
     } catch (error) {
         res.status(500).json({ error: 'Server error' });
