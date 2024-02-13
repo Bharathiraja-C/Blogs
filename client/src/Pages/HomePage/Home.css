@@ -1,9 +1,15 @@
 .col-md-3 {
-    /* border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: rgb(226, 226, 226); */
     margin-right: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 
+
+}
+.col-md-3:hover{
+    border: 1px solid #ccc; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    background-color: rgb(226, 226, 226); 
+    cursor: pointer;
 }
 body {
     overflow-x: hidden; /* Hide scrollbars */
@@ -65,14 +71,22 @@ div p {
 }
 
 @media screen and (max-width: 600px) {
-    .left-content .list-item {
+    .list-item {
       width: 100%;
+      
     }
+}
+@media screen and (max-width: 300px) {
+     .list-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+}
     .left-content h6,
   .left-content content {
     font-size: 0.9rem;
   }
-  }
+
   
 .user-info img {
     width: 30px;
@@ -88,7 +102,6 @@ div p {
     margin-bottom: 15px;
     margin-top: 5px;
 }
-
 .user-info {
     display: flex;
     margin-bottom: 0px;
