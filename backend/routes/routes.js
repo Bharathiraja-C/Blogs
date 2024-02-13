@@ -11,6 +11,7 @@ router.post('/signUp', authController.signUp);
 router.post('/logIn', authController.logIn)
 
 router.get('/getAllBlogs', blogController.getAllBlogs);
-router.post('/newBlog', blogController.createBlog); // Add this new route
+router.post('/newBlog/:id', blogController.createBlog); // Add this new route
+router.post('/updateBlog/:blogid',blogController.updateBlog) ; 
 
 module.exports = router;
