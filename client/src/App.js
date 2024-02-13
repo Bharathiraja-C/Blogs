@@ -4,7 +4,7 @@ import UserProfile from './Pages/UserProfile/UserProfile';
 import UserAuth from './Pages/UserAuth/UserAuth';
 import Home from './Pages/HomePage/Home';
 import BlogPostPage from './Pages/BlogRead/BlogRead';
-import NewBlog from './Pages/NewBlog/NewBlog';
+import NewBlog from './Pages/NewBlog/newBlog';
 
 function App() {
   return (
