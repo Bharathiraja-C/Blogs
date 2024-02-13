@@ -2,3 +2,12 @@
     height: 70px;
     background-color: #095074;
 }
+@media screen and (max-width: 580px) {
+    .form-inline {
+      visibility:hidden;
+    }
+  }@media screen and (max-width: 780px) {
+    .nav-item {
+      visibility:hidden;
+    }
+  }
