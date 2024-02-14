@@ -40,7 +40,6 @@ function Home() {
 
 	return (
 		<div className="Home">
-			<HeroDiv />
 			<div
 				className="container-fluid  mt-4 ml-0"
 				style={{
@@ -49,10 +48,10 @@ function Home() {
 					width: "calc(100% - 90px)",
 				}}
 			>
-				<div className="row">
+				<div className="row" style={{marginTop: "-25px"}}>
 					{/* Title */}
 					<div className="col-md-12 mb-3">
-						<h3 className="text-start">Trending Tales</h3>
+						<h3 className="text-start" style={{marginTop: "25px"}}>Trending Tales</h3>
 					</div>
 
           {/* Blog Previews */}
