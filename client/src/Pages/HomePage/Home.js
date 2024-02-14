@@ -114,7 +114,7 @@ function Home() {
 											<h6 style={{ marginTop: "0px" }}>
 												{row.title}
 											</h6>
-											<content>{row.content}</content>
+											<content>{row.content.substring(0, 110)}</content>
 
 											<p
 												style={{

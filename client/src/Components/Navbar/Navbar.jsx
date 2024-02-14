@@ -20,13 +20,13 @@ function Navbar() {
 
   const navigate = useNavigate()
 
-  let storedId = ''
-  let storedName = ''
+  const [storedId, setStoredId] = useState('')
+  const [storedName, setStoredName] = useState('')
 
   useEffect(() => {
     // Retrieve data from localStorage
-    storedId = localStorage.getItem("id");
-    storedName = localStorage.getItem("name");
+    setStoredId(localStorage.getItem("id"));
+    setStoredName(localStorage.getItem("name"));
 
     // Update state variables with retrieved data
     if (storedId) {
@@ -38,9 +38,14 @@ function Navbar() {
   }, []); // Empty dependency array means this effect runs only once after the component mounts
 
   useEffect(() => {
-    storedId = localStorage.getItem('id')
-    storedName = localStorage.getItem("name");
-    console.log('value changed')
+    setStoredId(localStorage.getItem('id'))
+    setStoredName(localStorage.getItem("name"));
+    if (storedId) {
+      setId(storedId);
+    }
+    if (storedName) {
+      setName(storedName);
+    }
   },[localStorage])
 
   const searchBlog = async (e) => {
@@ -83,12 +88,12 @@ function Navbar() {
 
         <div className="ml-auto mr-4px d-flex align-items-center">
           <ul className="navbar-nav flex-row">
-            {id ? (
+            {storedId ? (
               <ul className="navbar-nav flex-row ml-auto">
                 <li className="nav-item text-white mr-4 d-flex align-items-center">
                   <Link style={{color: "white", textDecoration: "none"}} to={`/User/${localStorage.getItem('id')}`} >
                     <FaRegUserCircle style={{ fontSize: "2rem", marginRight: "10px" }} />
-                    <span className="ml-2">{name}</span>
+                    <span className="ml-2">{storedName}</span>
                   </Link>
                 </li>
               </ul>
