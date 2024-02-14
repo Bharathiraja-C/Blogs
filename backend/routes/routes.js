@@ -19,4 +19,7 @@ router.post('/updateBlog/:blogid/:userid', blogController.updateBlog);
 router.get('/getBlogById/:blogid', blogController.getBlogById);
 router.delete('/deleteBlogById/:blogid', blogController.deleteBlogById);
 
+router.get('/addLikes/:blogid/:userid',blogController.addLikes);
+router.get('/removeLikes/:blogid/:userid',blogController.removeLikes);
+
 module.exports = router;

@@ -8,7 +8,8 @@ import { formatDistanceToNow } from "date-fns";
 function BlogPostPage() {
 	// Example blog post data
 	let { id } = useParams();
-
+	const [color,setColor]=useState("");
+	const [icon,setIcon]=useState("bx bx-heart");
 	useEffect(() => {
 		const getBlogData = async () => {
 			try {
@@ -64,11 +65,29 @@ function BlogPostPage() {
 			console.log(error);
 		}
 	};
-
+	const updateHeart=()=>{
+		
+		const c="red";
+		setColor(c);
+		setIcon();
+	}
 	return (
+		
 		<div className="blog-post-container">
-			<div className="blog-post">
+			<div className="blog-post" >
 				<h1>{blogPost.title}</h1>
+				{
+					blogPost.likes ? (
+					blogPost.likes.includes(localStorage.getItem("id"))?(
+						<i onClick={updateHeart} style={{color:"red",fontSize:"30px"}}  class="bx bxs-heart"></i>
+					):(
+						<i onClick={updateHeart} style={{fontSize:"30px"}}  class="bx bx-heart"></i>
+					)
+					):(
+						<i onClick={updateHeart} style={{fontSize:"30px"}}  class="bx bx-heart"></i>
+					)
+				}	
+				
 				<p>
 					<strong>Author:</strong>{" "}
 					<Link to={`/User/${blogPost.user_id}`}>
@@ -82,7 +101,6 @@ function BlogPostPage() {
 						  " ago"
 						: "Unknown"}
 				</p>
-
 				<div className="blog-content">
 					<p style={{ whiteSpace: "pre-wrap" }}>{blogPost.content}</p>
 					<div
@@ -100,6 +118,7 @@ function BlogPostPage() {
 								</>
 							) : null}
 						</div>
+						
 						<button onClick={() => navigate("/")}>
 							Back to Home
 						</button>
