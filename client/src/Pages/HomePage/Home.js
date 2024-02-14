@@ -6,10 +6,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
 
+
 function Home() {
 	const navigate = useNavigate();
 	const [blogData, setBlogData] = useState([]);
-
+	// const [search, setSearch] = useState("");
 	useEffect(() => {
 		const getAllBlogs = async () => {
 			try {
@@ -26,6 +27,18 @@ function Home() {
 
 		getAllBlogs();
 	}, []);
+
+	const searchBlog = async (e, search) => {
+		e.preventDefault()
+		try {
+		  const res = await axios.get(`http://localhost:5000/searchBlog/${search}`)
+		  if (res.status === 200) {
+			navigate(`/blog/${res.data.bestMatchId}`)
+		  }
+		} catch (error) {
+		  console.log(error)
+		}
+	  }
 
 	return (
 		<div className="Home">
@@ -149,31 +162,33 @@ function Home() {
 									Discover more of what matters to you
 								</h5>
 								<div className="topic">
-									<button className="button">
+									<button onClick={(e) => searchBlog(e, 'Technology')} className="button" type="submit">
 										Technology
 									</button>
-									<button className="button">Internet</button>
-									<button className="button">
-										Machine Learning
+									<button onClick={(e) => searchBlog(e, 'Humans')} className="button">
+										Humans
+										</button>
+									<button onClick={(e) => searchBlog(e, 'React')} className="button">
+										React
 									</button>
-									<button className="button">
-										Data Analytics
+									<button onClick={(e) => searchBlog(e, 'CI/CD')} className="button">
+										CI/CD
 									</button>
-									<button className="button">AI</button>
-									<button className="button">
-										Web Development
+									<button onClick={(e) => searchBlog(e, 'Analysis')} className="button">Analysis</button>
+									<button onClick={(e) => searchBlog(e, 'Python')} className="button">
+										Python
 									</button>
-									<button className="button">
-										Social Media
+									<button onClick={(e) => searchBlog(e, 'Language')} className="button">
+										Language
 									</button>
-									<button className="button">Robotics</button>
-									<button className="button">ChatBot</button>
-									<button className="button">Cloud</button>
-									<button className="button">
+									<button onClick={(e) => searchBlog(e, 'JAVA')} className="button">JAVA</button>
+									<button onClick={(e) => searchBlog(e, 'Spring Boot')} className="button">Spring Boot</button>
+									<button onClick={(e) => searchBlog(e, 'Organizations')} className="button">Organizations</button>
+									<button onClick={(e) => searchBlog(e, 'Networking')} className="button">
 										Networking
 									</button>
 
-									<button className="button">Malware</button>
+									<button  onClick={(e) => searchBlog(e, 'Development')} className="button">Development</button>
 								</div>
 							</div>
 						</div>
