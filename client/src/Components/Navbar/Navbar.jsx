@@ -78,7 +78,7 @@ function Navbar() {
     >
       <div className="container">
         <a className="navbar-brand" href="/" style={navstyle}>
-          Tech Tales
+        <i class='bx bx-book-bookmark' ></i> Tech Tales
         </a>
 
         {/* Search bar and button */}
