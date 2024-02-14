@@ -120,7 +120,7 @@ function Navbar() {
                 <li className="nav-item flex-grow-0 flex-shrink-0 ml-2">
                   <button id="btn" className="btn btn-dark rounded-pill mr-2">
                     <a
-                      href="\blog\id:"
+                      href="\Auth"
                       style={{ textDecoration: "none", color: "white" }}
                     >
                       Get Started
