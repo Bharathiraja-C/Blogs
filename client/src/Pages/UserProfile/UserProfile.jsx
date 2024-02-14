@@ -56,6 +56,7 @@ const UserProfile = () => {
 
 	const logout = (id) => {
 		localStorage.clear();
+        document.dispatchEvent(new Event('localStorageChange'));
 		navigate(`/`);
 	};
 
