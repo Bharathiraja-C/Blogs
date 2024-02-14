@@ -38,7 +38,7 @@ function Home() {
 				<div className="row">
 					{/* Title */}
 					<div className="col-md-12 mb-3">
-						<h3 className="text-start">Trending Tales</h3>
+						<h3 className="text-start text-dark">Trending Tales</h3>
 					</div>
 
 					{/* Blog Previews */}
@@ -55,7 +55,7 @@ function Home() {
 											key={index}
 										>
 											<div className="text-black p-2">
-												<p>User: {row.author}</p>
+												<p>Author: {row.author}</p>
 												<h6>{row.title}</h6>
 												<p
 													style={{
