@@ -117,6 +117,7 @@ const UserProfile = () => {
 				)}
 				{isEditing ? null : id === localStorage.getItem("id") ? (
 					<div
+						className="flex--display"
 						style={{
 							display: "flex",
 							justifyContent: "space-between",
@@ -151,7 +152,7 @@ const UserProfile = () => {
 									<h6>by {row.author}</h6>
 								</h5>
 
-								<p>{formatDistanceToNow(new Date(row.createdAt))} ago</p>
+								<p className="time">{formatDistanceToNow(new Date(row.createdAt))} ago</p>
 							</div>
 						) : null;
 					})}

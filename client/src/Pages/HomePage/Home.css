@@ -26,10 +26,9 @@ body {
 }
 
 .container-fluid {
-    margin-left: 100px;
-    padding-right: 5px;
-    width: calc(100% - 90px);
-
+    margin-left: 90px !important ;
+    padding-right: 5px !important;
+    width: calc(100% - 90px) !important;
 }
 
 .content {
@@ -161,6 +160,12 @@ div p {
     .list-item {
         width: 100%;
         margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .container-fluid{
+        margin-left: auto !important;
     }
 }
 

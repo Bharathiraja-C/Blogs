@@ -83,6 +83,22 @@
     cursor: pointer;
 }
 
+@media only screen and (max-width: 800px){
+    .time{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 485px){
+    .flex--display{
+        display: unset !important;
+    }
+    .show-profile{
+        display: unset;
+    }
+}
+
 @media only screen and (max-width: 750px) {
     .show-profile {
         margin-left: 10px;

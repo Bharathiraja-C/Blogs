@@ -42,11 +42,6 @@ function Home() {
 		<div className="Home">
 			<div
 				className="container-fluid  mt-4 ml-0"
-				style={{
-					marginLeft: "90px",
-					paddingRight: "5px",
-					width: "calc(100% - 90px)",
-				}}
 			>
 				<div className="row" style={{marginTop: "-25px"}}>
 					{/* Title */}
@@ -97,7 +92,7 @@ function Home() {
                 index > 5 ? (
                   <div
                     onClick={() => navigate(`/blog/${row._id}`)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", margin: "auto" }}
                     className="list-item "
                   >
                     <div className="p-2">
