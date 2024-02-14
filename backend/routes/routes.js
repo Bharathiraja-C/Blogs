@@ -11,8 +11,9 @@ router.post('/signUp', authController.signUp);
 router.post('/logIn', authController.logIn)
 
 router.get('/getAllBlogs', blogController.getAllBlogs);
-router.post('/newBlog/:id', blogController.createBlog); // Add this new route
-router.post('/updateBlog/:blogid/:userid',blogController.updateBlog) ; 
+router.get('/searchBlog/:targetString', blogController.searchBlogData)
+router.post('/newBlog/:id', blogController.createBlog);
+router.post('/updateBlog/:blogid/:userid', blogController.updateBlog); 
 
 
 router.get('/getBlogById/:blogid', blogController.getBlogById);
