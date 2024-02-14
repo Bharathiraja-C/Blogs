@@ -1,6 +1,7 @@
 .col-md-3 {
     margin-right: 20px;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(226, 226, 226);
 }
 
 
@@ -193,12 +194,13 @@ div p {
     display: block;
     width: auto;
     text-align: left;
+    border: 1px solid rgb(226, 226, 226) !important;
 }
 
 .button:hover {
     border: 1px solid #ccc;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-
+    color:white;
     background-color: green;
     cursor: pointer;
 
