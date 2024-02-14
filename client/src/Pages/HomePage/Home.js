@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
-import HeroDiv from "../../Components/HeroDiv/HeroDiv";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
@@ -27,11 +25,10 @@ function Home() {
 
   return (
     <div className="Home">
-      <HeroDiv />
       <div className="container-fluid  mt-4 ml-0">
         <div className="row">
           {/* Title */}
-          <div className="col-md-12 mb-3">
+          <div className="col-md-12 mb-3" id="trending">
             <h3 className="text-start text-dark">Trending Tales</h3>
           </div>
 
@@ -148,6 +145,8 @@ function Home() {
         </div>
       </div>
     </div>
+	
+
   );
 }
 
