@@ -143,6 +143,7 @@ const UserProfile = () => {
 								key={index}
 								className="one-blog-item"
 								onClick={() => navigate(`/blog/${row._id}`)}
+                                style={{cursor: "pointer"}}
 							>
 								<h5>
 									{row.title}
