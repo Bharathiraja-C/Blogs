@@ -7,7 +7,7 @@ function HeroDiv(){
             <div className="text-container" style={{float:"left",marginRight:"150px"}}>
                 <p className="welcome"><strong>Welcome</strong></p>
                 <p className="club"><strong>To The Club</strong></p>
-                <a href="/Start">
+                <a href="#trending">
                     <button className="btn btn-dark btn-outline-light my-2 my-sm-0">Start Reading</button>
                 </a>
             </div>

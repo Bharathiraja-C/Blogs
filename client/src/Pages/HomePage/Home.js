@@ -37,7 +37,7 @@ function Home() {
 			>
 				<div className="row">
 					{/* Title */}
-					<div className="col-md-12 mb-3">
+					<div className="col-md-12 mb-3" id="trending">
 						<h3 className="text-start text-dark">Trending Tales</h3>
 					</div>
 
