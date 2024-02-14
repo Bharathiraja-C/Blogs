@@ -135,68 +135,6 @@ function Home() {
 						) : (
 							<>Loading ...</>
 						)}
-						{/*<div className="list-item">
-        <div className="p-2">
-          <div className="user-info">
-            <img
-              src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
-              alt="Profile"
-              style={{ width: "30px", height: "30px", marginRight: "10px" }}
-            />
-            <p style={{ marginBottom: "0px" }}>its_manii7</p>
-          </div>
-          <h6>
-            Designing for Apple Vision Pro: Lessons Learned from Puzzling
-            Places
-          </h6>
-          <content>
-            The Apple Vision Pro presents new design challenges to consider.
-            Here are some of the lessons learned from redesigning Puzzling
-            Places from the ground up for the Apple Vision Pro.
-          </content>
-
-          <p
-            style={{
-              color: "gray",
-              fontSize: "0.8rem",
-              marginTop: "auto",
-            }}
-          >
-            feb 2
-          </p>
-        </div>
-      </div>
-      <div className="list-item">
-        <div className="p-2">
-          <div className="user-info">
-            <img
-              src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
-              alt="Profile"
-              style={{ width: "30px", height: "30px", marginRight: "10px" }}
-            />
-            <p style={{ marginBottom: "0px" }}>its_manii7</p>
-          </div>
-          <h6 style={{ marginTop: "0px" }}>
-            Designing for Apple Vision Pro: Lessons Learned from Puzzling
-            Places
-          </h6>
-          <content>
-            The Apple Vision Pro presents new design challenges to consider.
-            Here are some of the lessons learned from redesigning Puzzling
-            Places from the ground up for the Apple Vision Pro.
-          </content>
-
-          <p
-            style={{
-              color: "gray",
-              fontSize: "0.8rem",
-              marginTop: "auto",
-            }}
-          >
-            feb 2
-          </p>
-        </div>
-          </div>*/}
 					</div>
 					<div class="col-lg-6 col-md-12 col-sm-">
 						<div className="Right-content">
