@@ -60,7 +60,7 @@ function Signup()
         }
     }
     return (
-        <div className="form-head">
+        <div className="form-head" style={{paddingBottom: "35px", paddingTop: "35px"}}>
         <center className="login-head">Sign Up</center>
         <p className=".p">
             {" "}

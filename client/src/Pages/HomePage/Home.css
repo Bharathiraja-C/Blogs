@@ -32,8 +32,8 @@ body {
 
 }
 
-content {
-    margin-bottom: 5px;
+.content {
+    margin-bottom: 15px;
 }
 
 
@@ -55,9 +55,9 @@ div p {
     margin-top: "0rem";
 }
 
-.p-2 {
+/* .p-2 {
     height: 150px;
-}
+} */
 
 .box {
     display: flex;
@@ -89,6 +89,7 @@ div p {
     display: flex;
     align-items: flex-start;
     width: 80%;
+    margin-bottom: 15px;
 }
 
 

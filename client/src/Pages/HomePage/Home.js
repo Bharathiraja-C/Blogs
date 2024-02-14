@@ -26,10 +26,10 @@ function Home() {
   return (
     <div className="Home">
       <div className="container-fluid  mt-4 ml-0">
-        <div className="row">
+        <div className="row" style={{marginTop: "-25px"}}>
           {/* Title */}
           <div className="col-md-12 mb-3" id="trending">
-            <h3 className="text-start text-dark">Trending Tales</h3>
+            <h3 className="text-start text-dark" style={{marginTop: "25px"}}>Trending Tales</h3>
           </div>
 
           {/* Blog Previews */}
@@ -93,7 +93,7 @@ function Home() {
                         </p>
                       </div>
                       <h6 style={{ marginTop: "0px" }}>{row.title}</h6>
-                      <content>{row.content.substring(0, 110)}</content>
+                      <p className="content">{row.content.substring(0, 110)}</p>
 
                       <p
                         style={{
