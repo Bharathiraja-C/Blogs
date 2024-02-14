@@ -51,7 +51,7 @@ function Home() {
 				<div className="row" style={{marginTop: "-25px"}}>
 					{/* Title */}
 					<div className="col-md-12 mb-3">
-						<h3 className="text-start" style={{marginTop: "25px"}}>Trending Tales</h3>
+						<h3 id="trending" className="text-start" style={{marginTop: "25px"}}>Trending Tales</h3>
 					</div>
 
           {/* Blog Previews */}
