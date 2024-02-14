@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
-import HeroDiv from "../../Components/HeroDiv/HeroDiv";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
@@ -25,8 +23,8 @@ function Home() {
 			}
 		};
 
-		getAllBlogs();
-	}, []);
+    getAllBlogs();
+  }, []);
 
 	const searchBlog = async (e, search) => {
 		e.preventDefault()
@@ -57,77 +55,68 @@ function Home() {
 						<h3 className="text-start">Trending Tales</h3>
 					</div>
 
-					{/* Blog Previews */}
-					<div className="col-md-12 mb-4 offset-md-1 text-start">
-						<div className="row gap-3 ">
-							{blogData ? (
-								blogData.map((row, index) =>
-									index <= 5 ? (
-										<div
-											onClick={() =>
-												navigate(`/blog/${row._id}`)
-											}
-											className="col-md-3 mb-2"
-											key={index}
-										>
-											<div className="text-black p-2">
-												<p>User: {row.author}</p>
-												<h6>{row.title}</h6>
-												<p
-													style={{
-														color: "gray",
-														fontSize: "0.8rem",
-														marginTop: "auto",
-													}}
-												>
-													{formatDistanceToNow(
-														new Date(row.createdAt)
-													)}{" "}
-													ago
-												</p>
-											</div>
-										</div>
-									) : null
-								)
-							) : (
-								<>Loading ...</>
-							)}
-						</div>
-					</div>
-				</div>
-			</div>
+          {/* Blog Previews */}
+          <div className="col-md-12 mb-4 offset-md-1 text-start">
+            <div className="row gap-3 ">
+              {blogData ? (
+                blogData.map((row, index) =>
+                  index <= 5 ? (
+                    <div
+                      onClick={() => navigate(`/blog/${row._id}`)}
+                      className="col-md-3 mb-2"
+                      key={index}
+                    >
+                      <div className="text-black p-2">
+                        <p>Author: {row.author}</p>
+                        <h6>{row.title}</h6>
+                        <p
+                          style={{
+                            color: "gray",
+                            fontSize: "0.8rem",
+                            marginTop: "auto",
+                          }}
+                        >
+                          {formatDistanceToNow(new Date(row.createdAt))} ago
+                        </p>
+                      </div>
+                    </div>
+                  ) : null
+                )
+              ) : (
+                <>Loading ...</>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-md-12">
-						{blogData ? (
-							blogData.map((row, index) =>
-								index > 5 ? (
-									<div
-										onClick={() =>
-											navigate(`/blog/${row._id}`)
-										}
-										style={{ cursor: "pointer" }}
-										className="list-item "
-									>
-										<div className="p-2">
-											<div className="user-info">
-												<img
-													src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
-													alt="Profile"
-												/>
-												<p
-													style={{
-														marginBottom: "0px",
-													}}
-												>
-													{row.author}
-												</p>
-											</div>
-											<h6 style={{ marginTop: "0px" }}>
-												{row.title}
-											</h6>
-											<content>{row.content.substring(0, 110)}</content>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            {blogData ? (
+              blogData.map((row, index) =>
+                index > 5 ? (
+                  <div
+                    onClick={() => navigate(`/blog/${row._id}`)}
+                    style={{ cursor: "pointer" }}
+                    className="list-item "
+                  >
+                    <div className="p-2">
+                      <div className="user-info">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.Z306v3XdxhOaxBFGfHku7wHaHw?rs=1&pid=ImgDetMain"
+                          alt="Profile"
+                        />
+                        <p
+                          style={{
+                            marginBottom: "0px",
+                          }}
+                        >
+                          {row.author}
+                        </p>
+                      </div>
+                      <h6 style={{ marginTop: "0px" }}>{row.title}</h6>
+                      <p className="content">{row.content.substring(0, 110)}</p>
 
 											<p
 												style={{
