@@ -24,6 +24,13 @@ body {
     width: 100%;
 }
 
+.container-fluid {
+    margin-left: 100px;
+    padding-right: 5px;
+    width: calc(100% - 90px);
+
+}
+
 content {
     margin-bottom: 5px;
 }
@@ -64,27 +71,23 @@ div p {
 }
 
 /* Content layout and styles */
-.left-content {
-    flex: 0 0 60%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-    align-items: flex-start;
-}
 
-.right-content {
+
+.Right-content {
     flex: 30%;
+    margin-top: 8px;
 }
 
 /* User info and list item */
-.list-item{
+.list-item {
     margin-bottom: 10px;
 }
-.user-info,.list-item {
+
+.user-info,
+.list-item {
     display: flex;
     align-items: flex-start;
-    width:80%;
+    width: 80%;
 }
 
 
@@ -92,7 +95,7 @@ div p {
     width: 30px;
     height: 30px;
     margin-right: 10px;
-    
+
 }
 
 @media (max-width: 576px) {

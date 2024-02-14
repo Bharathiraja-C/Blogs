@@ -7,6 +7,7 @@ import BlogPostPage from './Pages/BlogRead/BlogRead';
 import NewBlog from './Pages/NewBlog/NewBlog';
 import HeroDiv from './Components/HeroDiv/HeroDiv';
 import Navbar from './Components/Navbar/Navbar';
+import Signup from './Pages/UserAuth/Signup';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/blog/:id' element={<><Navbar /><BlogPostPage /></>} />
         <Route path='/newBlog' element={<><Navbar /><NewBlog/></>}/>
         <Route path='/hero' element={<HeroDiv/>}/>
+        <Route path='/signup' element={<Signup/>}/>
       </Routes>
     </BrowserRouter>
   );
