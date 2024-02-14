@@ -7,17 +7,19 @@ import BlogPostPage from './Pages/BlogRead/BlogRead';
 import NewBlog from './Pages/NewBlog/NewBlog';
 import HeroDiv from './Components/HeroDiv/HeroDiv';
 import Navbar from './Components/Navbar/Navbar';
+import Signup from './Pages/UserAuth/Signup';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<><Navbar /><Home /></>} />
+        <Route path='/' element={<><Navbar /><HeroDiv /><Home /></>} />
         <Route path='/User/:id' element={<><Navbar /><UserProfile /></>} />
         <Route path='/Auth' element={<UserAuth />} />
         <Route path='/blog/:id' element={<><Navbar /><BlogPostPage /></>} />
         <Route path='/newBlog' element={<><Navbar /><NewBlog/></>}/>
         <Route path='/hero' element={<HeroDiv/>}/>
+        <Route path='/signup' element={<Signup/>}/>
       </Routes>
     </BrowserRouter>
   );

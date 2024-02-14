@@ -20,28 +20,43 @@ function Navbar() {
 
   const navigate = useNavigate()
 
-  let storedId = ''
-  let storedName = ''
+  const [storedId, setStoredId] = useState('')
+  const [storedName, setStoredName] = useState('')
 
   useEffect(() => {
-    // Retrieve data from localStorage
-    storedId = localStorage.getItem("id");
-    storedName = localStorage.getItem("name");
+    const handleStorageChange = () => {
+      // Retrieve data from localStorage
+      setStoredId(localStorage.getItem("id"));
+      setStoredName(localStorage.getItem("name"));
+  
+      // Update state variables with retrieved data
+      if (storedId) {
+        setId(storedId);
+      }
+      if (storedName) {
+        setName(storedName);
+      }
+    }
 
-    // Update state variables with retrieved data
+    handleStorageChange()
+
+    document.addEventListener('localStorageChange', handleStorageChange);
+
+    return () => {
+      document.removeEventListener('localStorageChange', handleStorageChange);
+    };
+  }, []); // Empty dependency array means this effect runs only once after the component mounts
+
+  useEffect(() => {
+    setStoredId(localStorage.getItem('id'))
+    setStoredName(localStorage.getItem("name"));
     if (storedId) {
       setId(storedId);
     }
     if (storedName) {
       setName(storedName);
     }
-  }, []); // Empty dependency array means this effect runs only once after the component mounts
-
-  useEffect(() => {
-    storedId = localStorage.getItem('id')
-    storedName = localStorage.getItem("name");
-    console.log('value changed')
-  },[localStorage])
+  }, [localStorage])
 
   const searchBlog = async (e) => {
     e.preventDefault()
@@ -83,12 +98,12 @@ function Navbar() {
 
         <div className="ml-auto mr-4px d-flex align-items-center">
           <ul className="navbar-nav flex-row">
-            {id ? (
+            {storedId ? (
               <ul className="navbar-nav flex-row ml-auto">
                 <li className="nav-item text-white mr-4 d-flex align-items-center">
-                  <Link style={{color: "white", textDecoration: "none"}} to={`/User/${localStorage.getItem('id')}`} >
+                  <Link style={{ color: "white", textDecoration: "none" }} to={`/User/${localStorage.getItem('id')}`} >
                     <FaRegUserCircle style={{ fontSize: "2rem", marginRight: "10px" }} />
-                    <span className="ml-2">{name}</span>
+                    <span className="ml-2">{storedName}</span>
                   </Link>
                 </li>
               </ul>
@@ -103,9 +118,9 @@ function Navbar() {
                   </a>
                 </li>
                 <li className="nav-item flex-grow-0 flex-shrink-0 ml-2">
-                  <button id="btn" className="btn btn-dark rounded-pill mr-2">
+                  <button id="btn" className="btn btn-dark rounded-pill mr-2" >
                     <a
-                      href="\blog\id:"
+                      href="./signup"
                       style={{ textDecoration: "none", color: "white" }}
                     >
                       Get Started
