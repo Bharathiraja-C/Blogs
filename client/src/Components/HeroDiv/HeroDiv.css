@@ -18,16 +18,18 @@
 }
 .hero{
     background-color: rgb(130, 136, 138);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .text-container {
     max-width: 50%;
     margin-right: 2.5vw;
+    margin-top: 0px;
 }
 
 .hero .btn{
@@ -44,6 +46,8 @@
 
 img {
     max-width: 100%;
+    border-radius: 8px;
+    margin-right: 2px;
 }
 
 @media screen and (max-width: 1130px) {

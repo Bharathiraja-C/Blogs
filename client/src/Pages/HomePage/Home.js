@@ -83,10 +83,11 @@ function Home() {
           </div>
         </div>
       </div>
-
+{/* blogs list and discover */}
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-12">
+		{/* left-content */}
+        <div class="row ">
+          <div class="Left-content col-lg-6 col-md-12">
             {blogData ? (
               blogData.map((row, index) =>
                 index > 5 ? (
@@ -132,7 +133,7 @@ function Home() {
 							<>Loading ...</>
 						)}
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-">
+					<div class="col-lg-6 col-md-12">
 						<div className="Right-content">
 							<div>
 								<h5
