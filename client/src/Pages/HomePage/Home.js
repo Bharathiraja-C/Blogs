@@ -6,48 +6,50 @@ import { formatDistanceToNow } from "date-fns";
 
 
 function Home() {
-	const navigate = useNavigate();
-	const [blogData, setBlogData] = useState([]);
-	// const [search, setSearch] = useState("");
-	useEffect(() => {
-		const getAllBlogs = async () => {
-			try {
-				const res = await axios.get(
-					"http://localhost:5000/getAllBlogs"
-				);
-				if (res.status === 201) {
-					setBlogData(res.data);
-				}
-			} catch (error) {
-				console.log(error);
-			}
-		};
+  const navigate = useNavigate();
+  const [blogData, setBlogData] = useState([]); //Trending blogs data
+
+  // Retrieve data for the Trending Blogs section.
+  useEffect(() => {
+    const getAllBlogs = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:5000/getAllBlogs"
+        );
+        if (res.status === 201) {
+          setBlogData(res.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     getAllBlogs();
   }, []);
 
-	const searchBlog = async (e, search) => {
-		e.preventDefault()
-		try {
-		  const res = await axios.get(`http://localhost:5000/searchBlog/${search}`)
-		  if (res.status === 200) {
-			navigate(`/blog/${res.data.bestMatchId}`)
-		  }
-		} catch (error) {
-		  console.log(error)
-		}
-	  }
+  // Submits a blog search query and navigates to the best matching blog post on success.
 
-	return (
-		<div className="Home">
-			<div
-				className="container-fluid  mt-4 ml-0"
-			>
-				<div className="row" style={{marginTop: "-25px"}}>
-					{/* Title */}
-					<div className="col-md-12 mb-3">
-						<h3 id="trending" className="text-start" style={{marginTop: "25px"}}>Trending Tales</h3>
-					</div>
+
+  const searchBlog = async (e, search) => {
+    e.preventDefault()
+    try {
+      const res = await axios.get(`http://localhost:5000/searchBlog/${search}`)
+      if (res.status === 200) {
+        navigate(`/blog/${res.data.bestMatchId}`)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return (
+    <div className="Home">
+      <div className="container-fluid  Trending mt-4 ">
+        <div className="row" style={{ marginTop: "-25px" }}>
+          {/* Title */}
+          <div className="col-md-12 mb-3">
+            <h3 id="trending" className="text-start" style={{ marginTop: "25px" }}>Trending Tales</h3>
+          </div>
 
           {/* Blog Previews */}
           <div className="col-md-12 mb-4 offset-md-1 text-start">
@@ -57,7 +59,7 @@ function Home() {
                   index <= 5 ? (
                     <div
                       onClick={() => navigate(`/blog/${row._id}`)}
-                      className="col-md-3 mb-2"
+                      className="col-md-3 mb-2 Trending-blogs"
                       key={index}
                     >
                       <div className="text-black p-2">
@@ -83,9 +85,9 @@ function Home() {
           </div>
         </div>
       </div>
-{/* blogs list and discover */}
-      <div class="container">
-		{/* left-content */}
+      {/* blogs list and discover */}
+      <div class="Blogs-list container-fluid ml-0">
+        {/* left-content */}
         <div class="row ">
           <div class="Left-content col-lg-6 col-md-12">
             {blogData ? (
@@ -113,74 +115,74 @@ function Home() {
                       <h6 style={{ marginTop: "0px" }}>{row.title}</h6>
                       <p className="content">{row.content.substring(0, 110)}</p>
 
-											<p
-												style={{
-													color: "gray",
-													fontSize: "0.8rem",
-													marginTop: "auto",
-												}}
-											>
-												{formatDistanceToNow(
-													new Date(row.createdAt)
-												)}{" "}
-												ago
-											</p>
-										</div>
-									</div>
-								) : null
-							)
-						) : (
-							<>Loading ...</>
-						)}
-					</div>
-					<div class="col-lg-6 col-md-12">
-						<div className="Right-content">
-							<div>
-								<h5
-									style={{
-										textAlign: "left",
-										marginBottom: "20px",
-										fontWeight: "bold",
-									}}
-								>
-									Discover more of what matters to you
-								</h5>
-								<div className="topic">
-									<button onClick={(e) => searchBlog(e, 'Technology')} className="button" type="submit">
-										Technology
-									</button>
-									<button onClick={(e) => searchBlog(e, 'Humans')} className="button">
-										Humans
-										</button>
-									<button onClick={(e) => searchBlog(e, 'React')} className="button">
-										React
-									</button>
-									<button onClick={(e) => searchBlog(e, 'pipeline')} className="button">
-										Pipeline
-									</button>
-									<button onClick={(e) => searchBlog(e, 'Analysis')} className="button">Analysis</button>
-									<button onClick={(e) => searchBlog(e, 'Python')} className="button">
-										Python
-									</button>
-									<button onClick={(e) => searchBlog(e, 'Language')} className="button">
-										Language
-									</button>
-									<button onClick={(e) => searchBlog(e, 'JAVA')} className="button">JAVA</button>
-									<button onClick={(e) => searchBlog(e, 'Spring Boot')} className="button">Spring Boot</button>
-									<button onClick={(e) => searchBlog(e, 'Organizations')} className="button">Organizations</button>
-									<button onClick={(e) => searchBlog(e, 'Machine Learning')} className="button">
-										Machine Learning
-									</button>
+                      <p
+                        style={{
+                          color: "gray",
+                          fontSize: "0.8rem",
+                          marginTop: "auto",
+                        }}
+                      >
+                        {formatDistanceToNow(
+                          new Date(row.createdAt)
+                        )}{" "}
+                        ago
+                      </p>
+                    </div>
+                  </div>
+                ) : null
+              )
+            ) : (
+              <>Loading ...</>
+            )}
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div className="Right-content">
+              <div>
+                <h5
+                  style={{
+                    textAlign: "left",
+                    marginBottom: "20px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Discover more of what matters to you
+                </h5>
+                <div className="topic">
+                  <button onClick={(e) => searchBlog(e, 'Technology')} className="button" type="submit">
+                    Technology
+                  </button>
+                  <button onClick={(e) => searchBlog(e, 'Humans')} className="button">
+                    Humans
+                  </button>
+                  <button onClick={(e) => searchBlog(e, 'React')} className="button">
+                    React
+                  </button>
+                  <button onClick={(e) => searchBlog(e, 'pipeline')} className="button">
+                    Pipeline
+                  </button>
+                  <button onClick={(e) => searchBlog(e, 'Analysis')} className="button">Analysis</button>
+                  <button onClick={(e) => searchBlog(e, 'Python')} className="button">
+                    Python
+                  </button>
+                  <button onClick={(e) => searchBlog(e, 'Language')} className="button">
+                    Language
+                  </button>
+                  <button onClick={(e) => searchBlog(e, 'JAVA')} className="button">JAVA</button>
+                  <button onClick={(e) => searchBlog(e, 'Spring Boot')} className="button">Spring Boot</button>
+                  <button onClick={(e) => searchBlog(e, 'Organizations')} className="button">Organizations</button>
+                  <button onClick={(e) => searchBlog(e, 'Machine Learning')} className="button">
+                    Machine Learning
+                  </button>
 
-									<button  onClick={(e) => searchBlog(e, 'Development')} className="button">Development</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+                  <button onClick={(e) => searchBlog(e, 'Development')} className="button">Development</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Home;
