@@ -4,7 +4,8 @@
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: rgb(226, 226, 226);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgb(255, 255, 255);
     border-radius: 7px;
 }
 
@@ -13,7 +14,7 @@
     justify-content: space-between;
 }
 
-.button-style{
+.button-style {
     height: 40px;
     width: 120px;
     margin-top: 30px;
@@ -83,18 +84,19 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 800px){
-    .time{
+@media only screen and (max-width: 800px) {
+    .time {
         display: none;
     }
 }
 
 
-@media only screen and (max-width: 485px){
-    .flex--display{
+@media only screen and (max-width: 485px) {
+    .flex--display {
         display: unset !important;
     }
-    .show-profile{
+
+    .show-profile {
         display: unset;
     }
 }
@@ -117,17 +119,17 @@
 .one-blog-item {
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 25px;
 }
 
-.one-blog-item h6{
+.one-blog-item h6 {
     cursor: pointer;
 }
 
-.edit-button{
+.edit-button {
     width: 80px;
     margin-top: 10px;
     background-image: linear-gradient(rgb(110, 110, 110), rgb(0, 0, 0));

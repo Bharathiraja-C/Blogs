@@ -1,28 +1,30 @@
-
-.form-head1{
+.form-head1 {
     margin: auto;
     margin-top: 30px;
     padding: 5%;
     width: 70%;
-    background-color: rgb(226,226,226);
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgb(255, 255, 255);
 }
-.login-head1{
+
+.login-head1 {
     padding-bottom: 20px;
     font-size: 2.4rem;
     font-weight: 700;
-    font-style:bold;
-    
+    font-style: bold;
+
 }
-.Button1{
+
+.Button1 {
     width: 100%;
     height: 50px;
     background-image: linear-gradient(rgb(110, 110, 110), rgb(0, 0, 0));
 }
 
-.p1{
+.p1 {
     text-align: center
 }
-.a1{
+
+.a1 {
     color: blue;
 }

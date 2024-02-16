@@ -32,8 +32,9 @@
 
 .hero .btn{
     color: white;
-    padding: 7px;
+    padding: 8px 12px;
     margin-left: 20px;
+    border: none;
 }
 
 

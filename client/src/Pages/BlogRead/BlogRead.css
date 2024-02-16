@@ -10,7 +10,7 @@
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(255, 255, 255);
 }
 
 .blog-content {
@@ -29,6 +29,7 @@
   margin-right: 10px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .blog-content a {

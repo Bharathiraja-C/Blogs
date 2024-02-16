@@ -68,12 +68,12 @@ const NewBlog = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Blog Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <Form.Control style={{borderColor: "black"}} type="text" placeholder="Enter Blog Title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </Form.Group><br />
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Blog content</Form.Label>
-                    <Form.Control placeholder='Enter the content here ...' as="textarea" rows={6} value={content} onChange={(e) => setContent(e.target.value)} />
+                    <Form.Control style={{borderColor: "black"}} placeholder='Enter the content here ...' as="textarea" rows={6} value={content} onChange={(e) => setContent(e.target.value)} />
                 </Form.Group>
                 <Button className='Button' type="submit">Save</Button><br /><br />
             </Form>
